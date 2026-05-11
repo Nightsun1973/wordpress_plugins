@@ -5,7 +5,7 @@ globs: plugins/**/*
 
 # Chameleon and loading rules (Knowles)
 
-- **Plugin names:** Use the **Name (Chameleon)** convention (e.g. `Knowles Booking (Chameleon)`, `Knowles Dashboard (Chameleon)`). See [plugin-naming.mdc](plugin-naming.mdc). Admin menu stays under a single **Knowles** parent; submenus **Bookings** and **Dashboard**.
+- **Plugin names:** Use the **`(Chameleon) Plugin Name`** convention (e.g. `(Chameleon) Knowles Booking`, `(Chameleon) Knowles Dashboard`). See [plugin-naming.mdc](plugin-naming.mdc). Admin menu stays under a single **Knowles** parent; submenus **Bookings** and **Dashboard**.
 - **Author:** Lee Carter; Author URI https://chameleoncodewing.co.uk. Text domains: `knowles-booking`, `knowles-data-dashboard`.
 - **Structure:** Deployable plugins under `plugins/booking/` (slug `knowles-booking`) and `plugins/dashboard/plugin/` (slug `knowles-data-dashboard`). Prompts and shared rules at project root (`/prompts`, `.cursor/rules`).
 

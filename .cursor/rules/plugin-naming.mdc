@@ -33,8 +33,8 @@ When creating or deploying WordPress plugins in this repo, follow these rules so
 - **Options / transients:** Prefix with slug using underscores (e.g. `knowles_booking_*`).
 - **Constants:** UPPER_SNAKE from slug (e.g. `KNOWLES_BOOKING_VERSION`, `KNOWLES_BOOKING_PATH`).
 - **Class prefix:** PascalCase from slug (e.g. `Knowles_Booking_Admin`, `Knowles_Booking_Public`).
-- **Plugin header:** `Plugin Name` must use the convention **Name (Chameleon)** so Chameleon plugins are identifiable (e.g. `Knowles Booking (Chameleon)`, `WooCommerce Export Import Customer Order Details (Chameleon)`). Put the release number only in the **`Version:`** header (and `VERSION` file / main plugin constant), **not** inside `Plugin Name`. Also set `Author`, `Author URI`, `Plugin URI` (https://chameleoncodewing.co.uk) as per project standards.
-- **Admin menus / settings screens:** Use **Name (Chameleon)** plus **v{version}** (from the plugin version constant) for the **submenu label and admin screen title** / `$title`, so editors see the running release in wp-admin. Do **not** put the version string inside the `Plugin Name` header.
+- **Plugin header:** `Plugin Name` must use the convention **`(Chameleon) Plugin Name`** (Chameleon prefix in parentheses first) so Chameleon plugins are identifiable (e.g. `(Chameleon) Knowles Booking`, `(Chameleon) WooCommerce Export Import Customer Order Details`). Put the release number only in the **`Version:`** header (and `VERSION` file / main plugin constant), **not** inside `Plugin Name`. Also set `Author`, `Author URI`, `Plugin URI` (https://chameleoncodewing.co.uk) as per project standards.
+- **Admin menus / settings screens:** Use **`(Chameleon) Plugin Name`** plus **v{version}** (from the plugin version constant) for the **submenu label and admin screen title** / `$title`, so editors see the running release in wp-admin. Do **not** put the version string inside the `Plugin Name` header.
 
 ## Multi-plugin layout (this repo)
 
@@ -51,4 +51,4 @@ When creating or deploying WordPress plugins in this repo, follow these rules so
 - [ ] Options/transients use slug with underscores as prefix.
 - [ ] Constants and class names use the same slug-derived naming.
 - [ ] After plugin changes, rebuild both zips (`build-booking-zip.ps1`, `build-dashboard-zip.ps1`).
-- [ ] `Plugin Name` includes **(Chameleon)** only (no `v` in the header); admin menu/screen title may append **v{version}**; **`Version:`** (and `VERSION` / constant) holds **MAJOR.MINOR.PATCH**.
+- [ ] `Plugin Name` is **`(Chameleon) …`** (prefix first; no `v` in the header); admin menu/screen title may append **v{version}**; **`Version:`** (and `VERSION` / constant) holds **MAJOR.MINOR.PATCH**.

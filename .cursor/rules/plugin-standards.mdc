@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Plugin standards
 
-**Naming:** Slug = lowercase hyphenated (e.g. `engineer-move-serials`). Use for: folder name, main file `<slug>.php`, text domain, script handles. Options/transients: `slug_with_underscores_*`. Constants/classes: UPPER_SNAKE / PascalCase from slug. Plugin header: **Name (Chameleon)**, Author, Author URI, Plugin URI (chameleoncodewing.co.uk).
+**Naming:** Slug = lowercase hyphenated (e.g. `engineer-move-serials`). Use for: folder name, main file `<slug>.php`, text domain, script handles. Options/transients: `slug_with_underscores_*`. Constants/classes: UPPER_SNAKE / PascalCase from slug. Plugin header: **`(Chameleon) Plugin Name`**, Author, Author URI, Plugin URI (chameleoncodewing.co.uk).
 
 **Deploy:** Installed path `wp-content/plugins/<slug>/`; main file `<slug>.php` in that folder. Zip: one top-level folder = slug; contents = plugin files. Store zips in **`dist/<slug>/`** (or `plugins/dist/<slug>/` in multi-plugin repos). Build script in `scripts/` (e.g. `build-zip.ps1`); run after any plugin change.
 

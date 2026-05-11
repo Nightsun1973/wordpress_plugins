@@ -1,5 +1,5 @@
 ﻿{
-    "generated_utc":  "2026-05-11T15:46:52.6346381Z",
+    "generated_utc":  "2026-05-11T15:49:16.1049400Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -21,11 +21,11 @@
                     },
                     {
                         "slug":  "chameleon-admin",
-                        "version":  "1.1.0",
-                        "filename":  "chameleon-admin-1.1.0.zip",
-                        "size_bytes":  7423,
-                        "last_write_utc":  "2026-05-11T15:46:38.2735967Z",
-                        "sha256":  "b67e55d591a717b4d75bf80445064529cfe715dc80ec2efa9805b72ab3495849",
+                        "version":  "1.1.1",
+                        "filename":  "chameleon-admin-1.1.1.zip",
+                        "size_bytes":  7470,
+                        "last_write_utc":  "2026-05-11T15:49:10.3774527Z",
+                        "sha256":  "e16e399ebdb667760158dbb1a525b85d16d394f1a493bf62289649c0ff1f1374",
                         "plugin_name":  "chameleon-admin",
                         "description":  null,
                         "text_domain":  null,
@@ -234,11 +234,11 @@
                     },
                     {
                         "slug":  "hello-update-test",
-                        "version":  "0.1.3",
-                        "filename":  "hello-update-test-0.1.3.zip",
-                        "size_bytes":  1471,
-                        "last_write_utc":  "2026-05-11T15:46:51.5583135Z",
-                        "sha256":  "8bc1e55c8490d1fa2ccf98c8909f5b6cb9e936a734d79461d08128cb880a9f05",
+                        "version":  "0.1.4",
+                        "filename":  "hello-update-test-0.1.4.zip",
+                        "size_bytes":  1516,
+                        "last_write_utc":  "2026-05-11T15:49:15.1107760Z",
+                        "sha256":  "c0ba1b79fa7c38e76515b1f66b44dc4048f17f2582e6586207b0a7eb321fb683",
                         "plugin_name":  "hello-update-test",
                         "description":  null,
                         "text_domain":  null,

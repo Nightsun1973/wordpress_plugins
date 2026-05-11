@@ -9,7 +9,7 @@ This repo is **multi-plugin** (Booking, Dashboard). It does **not** currently co
 
 - Provides **Elementor widgets** (extending `\Elementor\Widget_Base`), and
 - Integrates with **WooCommerce**, and
-- Uses Chameleon branding (e.g. "Woo &lt;Feature&gt; (Chameleon)").
+- Uses Chameleon branding (e.g. "(Chameleon) Woo &lt;Feature&gt;").
 
 ## When that applies
 
