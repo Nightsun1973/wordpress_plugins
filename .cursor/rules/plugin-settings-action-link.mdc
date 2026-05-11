@@ -1,0 +1,24 @@
+---
+description: WordPress plugins with a settings screen must add a Settings link on the Plugins list row
+alwaysApply: true
+---
+
+# Plugin list → Settings link
+
+When a plugin registers **any** wp-admin settings or configuration screen (options page, custom menu, embedded in WooCommerce, etc.), it **must** also add a **Settings** link on that plugin’s row on **Plugins → Installed Plugins**.
+
+## Implementation
+
+- Use the filter **`plugin_action_links_{$plugin_basename}`** where `$plugin_basename` is `plugin_basename( __FILE__ )` from the **main plugin file** (e.g. `my-plugin/my-plugin.php`).
+- Insert the link with **`array_unshift( $links, ... )`** so **Settings** appears before **Deactivate** (WordPress convention).
+- **`href`:** `esc_url()` the full admin URL to the same screen users would open from the menu (e.g. `admin_url( 'admin.php?page=...' )` or `admin_url( 'options-general.php?page=...' )`).
+- **Label:** translatable, e.g. `esc_html__( 'Settings', 'text-domain' )`.
+- **Capability:** Only add the link if `current_user_can( ... )` matches the capability required to access that settings screen. If the user cannot access settings, do not show the link (or they get a permissions error).
+
+## Network / multisite
+
+If the plugin is network-active and settings are per-site, link to the appropriate URL for the current context; if settings are network-only, use the network admin URL and consider `plugin_action_links` vs multisite patterns.
+
+## Reminder
+
+Apply this when adding or refactoring admin UI so discoverability matches user expectation on the Plugins screen.

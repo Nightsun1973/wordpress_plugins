@@ -1,0 +1,41 @@
+---
+description: Publish latest plugin zips to wordpress_plugins/live-plugins (latest only)
+alwaysApply: true
+---
+
+# Live plugins folder (latest zips only)
+
+`wordpress_plugins/live-plugins/` must contain **only the latest install zip** for each plugin.
+This folder is intended to be mirrored (e.g. via FTP) to provide a WordPress update repository.
+
+## Repository model
+
+- **Per plugin:** own Git repo (plugin code, build scripts, thin `scripts/after-build-live-plugins.ps1`).
+- **Shared publish:** only at **`wordpress_plugins` root** — `publish-live-plugins`, manifest generation, SFTP sync, `live-plugins/`. See `.docs/REPO-AND-PUBLISH-LAYOUT.md`.
+- Plugin checkouts should live **under** this tree so post-build can find `scripts/Run-AfterBuildLivePlugins.ps1` and the monorepo root; otherwise publish is skipped or must be run manually with `-RepoRoot`.
+
+## Workflow (required)
+
+When you bump a plugin version and/or rebuild distribution zips:
+
+1. **Build the plugin zip** using that repo’s existing build script(s) (e.g. `scripts/build-plugin-zip.ps1`, `scripts/build-*-zip.ps1`). Chameleon repos that ship zips should end the build with **`scripts/after-build-live-plugins.ps1`** (thin wrapper) so `wordpress_plugins/scripts/Run-AfterBuildLivePlugins.ps1` runs `publish-live-plugins` (local copy + manifest + SFTP when env is set).
+2. **Publish to live folder** by running:
+
+   `.\.tools\scripts\publish-live-plugins.ps1 -RepoRoot <plugin-repo-root>`
+
+   This copies the newest `dist/**/<slug>-<version>.zip` (or `plugins/dist/**/<slug>-<version>.zip`) into:
+   - `wordpress_plugins/live-plugins/<slug>-<version>.zip`
+
+   It also regenerates `live-plugins/index.json`. If **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** (legacy alias) is set, it runs **`scripts/sync-live-plugins-repo-ftp.ps1`** (SFTP via **Posh-SSH**) to upload all `live-plugins/*.zip` and **`index.json`** (see `live-plugins/README.md`).
+
+3. **Optional full release** (bump patch, build, publish, FTP, git): from the plugin repo root, `.\scripts\publish-chameleon-plugin-release.ps1` with `-BumpPatch`, `-ChangelogNote`, `-GitCommit` as needed (see `live-plugins/README.md`).
+
+4. **Retention rule in live folder**:
+   - Keep **exactly one zip per slug** in `live-plugins/` (the publish script enforces this).
+
+## Git policy
+
+- `live-plugins/*.zip` must **not** be committed (they are ignored by `live-plugins/.gitignore`).
+- It’s OK to commit the folder + README + scripts/rules that enforce this workflow.
+- Commit **`live-plugins/index.json`** when it changes (FTP upload uses the working tree copy).
+

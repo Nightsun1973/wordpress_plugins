@@ -1,0 +1,466 @@
+﻿{
+    "generated_utc":  "2026-05-11T13:06:24.5690899Z",
+    "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\live-plugins",
+    "plugins":  [
+                    {
+                        "slug":  "chameleon_reports",
+                        "version":  "1.0.1",
+                        "filename":  "chameleon_reports-1.0.1.zip",
+                        "size_bytes":  36572,
+                        "last_write_utc":  "2026-03-31T08:49:32.2377676Z",
+                        "sha256":  "cb11099f9ee55b8e9598c9604874e6ca85f73d8a410a948b43acb9a58895abaf",
+                        "plugin_name":  "chameleon_reports",
+                        "description":  "Chameleon reporting plugin (legacy naming with underscore). Provides stock reporting output.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "monthly_stock_report",
+                                               "description":  "Renders a monthly stock report view."
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-booking",
+                        "version":  "0.0.35",
+                        "filename":  "chameleon-booking-0.0.35.zip",
+                        "size_bytes":  181023,
+                        "last_write_utc":  "2026-03-06T18:32:52.5731035Z",
+                        "sha256":  "6102164cd50d68e861a3eabb2ccddd21df54af53976f6be484f65b4b320f8140",
+                        "plugin_name":  "chameleon-booking",
+                        "description":  "Booking plugin used in Chameleon client work. Provides a booking form/flow.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "Chameleon_Booking",
+                                               "description":  "Renders the booking UI (form/flow)."
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-customer-location",
+                        "version":  "0.1.8",
+                        "filename":  "chameleon-customer-location-0.1.8.zip",
+                        "size_bytes":  4409,
+                        "last_write_utc":  "2026-04-20T15:05:20.2495192Z",
+                        "sha256":  "58e997b77ef80587b97fadfdf71185853aa6d4fe1e75f90491ba880a89280de6",
+                        "plugin_name":  "chameleon-customer-location",
+                        "description":  "Adds customer location features used by other Chameleon plugins.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-demo-gate",
+                        "version":  "0.0.15",
+                        "filename":  "chameleon-demo-gate-0.0.15.zip",
+                        "size_bytes":  8623,
+                        "last_write_utc":  "2026-03-05T14:58:15.7502315Z",
+                        "sha256":  "f46dbebfe8d7c1a6f846beec6be8b431f0f13fdce85e10f8244a0c4ffa77f802",
+                        "plugin_name":  "chameleon-demo-gate",
+                        "description":  "Simple demo/gating plugin used in sample environments.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-plugin-updates",
+                        "version":  "1.0.1",
+                        "filename":  "chameleon-plugin-updates-1.0.1.zip",
+                        "size_bytes":  7023,
+                        "last_write_utc":  "2026-05-11T12:16:54.8626543Z",
+                        "sha256":  "1f7775862d9bad4cf2e677d635bb1b6cf2b6139b7fdb600feb3e0844c6288c48",
+                        "plugin_name":  "chameleon-plugin-updates",
+                        "description":  null,
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-regional-stock-control",
+                        "version":  "0.6.0",
+                        "filename":  "chameleon-regional-stock-control-0.6.0.zip",
+                        "size_bytes":  31704,
+                        "last_write_utc":  "2026-04-20T15:40:34.4456494Z",
+                        "sha256":  "b8eedb62c357ee00243906e9fbf9958a9905672746c937f4af7e19275725e360",
+                        "plugin_name":  "chameleon-regional-stock-control",
+                        "description":  "WooCommerce regional stock control / enforcement plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-reports",
+                        "version":  "1.0.10",
+                        "filename":  "chameleon-reports-1.0.10.zip",
+                        "size_bytes":  41482,
+                        "last_write_utc":  "2026-04-17T09:27:14.7160309Z",
+                        "sha256":  "fb6f42a9bd07232973dd8d5f49f950e3fffbfc84cb31ede0a2648a0394b962fe",
+                        "plugin_name":  "chameleon-reports",
+                        "description":  "Chameleon reports plugin: daily jobs and stock report outputs.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "chameleon_daily_jobs",
+                                               "description":  "Renders a daily jobs report/list."
+                                           },
+                                           {
+                                               "tag":  "chameleon_stock_report",
+                                               "description":  "Renders a stock report view."
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-site-scan",
+                        "version":  "0.1.0",
+                        "filename":  "chameleon-site-scan-0.1.0.zip",
+                        "size_bytes":  8101,
+                        "last_write_utc":  "2026-03-10T14:06:42.1227344Z",
+                        "sha256":  "9aa19b9e389a6d4f7bf48f01f242aeddb9c1f31c70c38b187039bbb472d5b63e",
+                        "plugin_name":  "chameleon-site-scan",
+                        "description":  "Scans a WordPress site for common checks and outputs findings.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "customer-reports",
+                        "version":  "1.1.16",
+                        "filename":  "customer-reports-1.1.16.zip",
+                        "size_bytes":  47950,
+                        "last_write_utc":  "2026-04-22T12:53:36.0207642Z",
+                        "sha256":  "705314878431248f6e89a8c041fff534f4b6f92ecb6726754937116bb689d15d",
+                        "plugin_name":  "customer-reports",
+                        "description":  "Customer report pack: various stock/job reports for clients.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "2_year_detail",
+                                               "description":  "Renders a two-year detail report (client-specific)."
+                                           },
+                                           {
+                                               "tag":  "chameleon_daily_jobs",
+                                               "description":  "Renders a daily jobs report/list."
+                                           },
+                                           {
+                                               "tag":  "chameleon_stock_report",
+                                               "description":  "Renders a stock report view."
+                                           },
+                                           {
+                                               "tag":  "customer_daily_jobs",
+                                               "description":  "Renders a customer daily jobs report."
+                                           },
+                                           {
+                                               "tag":  "customer_stock_report",
+                                               "description":  "Renders a customer stock report."
+                                           },
+                                           {
+                                               "tag":  "lightfoot_daily_jobs",
+                                               "description":  "Renders a Lightfoot daily jobs report."
+                                           },
+                                           {
+                                               "tag":  "lightfoot_stock_report",
+                                               "description":  "Renders a Lightfoot stock report."
+                                           },
+                                           {
+                                               "tag":  "monthly_stock_report",
+                                               "description":  "Renders a monthly stock report view."
+                                           },
+                                           {
+                                               "tag":  "stock-report",
+                                               "description":  "Renders a stock report (legacy tag)."
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "email-send-and-log",
+                        "version":  "1.1.5",
+                        "filename":  "email-send-and-log-1.1.5.zip",
+                        "size_bytes":  28429,
+                        "last_write_utc":  "2026-05-11T13:06:22.9709400Z",
+                        "sha256":  "9928ac6c1c37bb3d626a1e207e04b990debad7ac0de778c7dcc235366b26f916",
+                        "plugin_name":  "email-send-and-log",
+                        "description":  "Email utility plugin: send email and log results for diagnostics/auditing.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "engineer-move-serials",
+                        "version":  "2.1.12",
+                        "filename":  "engineer-move-serials-2.1.12.zip",
+                        "size_bytes":  33913,
+                        "last_write_utc":  "2026-03-20T14:54:06.7117761Z",
+                        "sha256":  "62fd288788b56e1902fd6fea9949ba948f890322662d98d66c830bc6add8824b",
+                        "plugin_name":  "engineer-move-serials",
+                        "description":  "Tooling plugin to support engineer stock movements for serialized items.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "erp-connector",
+                        "version":  "0.2.1",
+                        "filename":  "erp-connector-0.2.1.zip",
+                        "size_bytes":  16553,
+                        "last_write_utc":  "2026-03-16T20:45:54.2417512Z",
+                        "sha256":  "70813f8f450dd203a47a5486be63f659d74c12cad192fd8da433586ce9216115",
+                        "plugin_name":  "erp-connector",
+                        "description":  "ERP connector plugin (Chameleon): connects WordPress to ERP endpoints/data.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "fleet-trak-dashboard",
+                        "version":  "0.0.101",
+                        "filename":  "fleet-trak-dashboard-0.0.101.zip",
+                        "size_bytes":  64485,
+                        "last_write_utc":  "2026-03-13T12:28:35.8043689Z",
+                        "sha256":  "d2fa3a6f075d652608f7f21148db742eb79dbc67e3a761febf2d3088703e981e",
+                        "plugin_name":  "fleet-trak-dashboard",
+                        "description":  "Fleet-Trak client dashboard plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "knowles-booking",
+                        "version":  "2.0.3",
+                        "filename":  "knowles-booking-2.0.3.zip",
+                        "size_bytes":  181431,
+                        "last_write_utc":  "2026-04-09T11:32:55.0900459Z",
+                        "sha256":  "ff44a87b2e1625c902a3c56c8000c36ba1b5c98ca0eb92de8dd0dd94be42a940",
+                        "plugin_name":  "knowles-booking",
+                        "description":  "Knowles booking plugin (Chameleon).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "knowles_booking",
+                                               "description":  "Renders the Knowles booking UI (form/flow)."
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "knowles-data-dashboard",
+                        "version":  "1.5.0",
+                        "filename":  "knowles-data-dashboard-1.5.0.zip",
+                        "size_bytes":  410911,
+                        "last_write_utc":  "2026-03-18T12:27:30.8790196Z",
+                        "sha256":  "a1680fb20f69e99bb5bcb5fbfd282f96fca4632aa3ce3a33b222c47751e74178",
+                        "plugin_name":  "knowles-data-dashboard",
+                        "description":  "Knowles data dashboard plugin (Chameleon).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "knowles_dashboard",
+                                               "description":  "Renders the Knowles dashboard UI."
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "kore-sim-manager",
+                        "version":  "1.1.39",
+                        "filename":  "kore-sim-manager-1.1.39.zip",
+                        "size_bytes":  42660,
+                        "last_write_utc":  "2026-05-08T15:42:16.9362932Z",
+                        "sha256":  "cfc2449b3a30abb282c96c68dfcb9b1ada0fa2cd62ef53dd6f5dd768ada52690",
+                        "plugin_name":  "kore-sim-manager",
+                        "description":  null,
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "lightfoot-job-search",
+                        "version":  "1.1.3",
+                        "filename":  "lightfoot-job-search-1.1.3.zip",
+                        "size_bytes":  22390,
+                        "last_write_utc":  "2026-04-09T14:56:35.8781088Z",
+                        "sha256":  "1c7641874d8f30bc1e4f54268ede0d11e086e34f4a7628da514c0803883a6caa",
+                        "plugin_name":  "lightfoot-job-search",
+                        "description":  "Lightfoot job search plugin (Chameleon).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "lightfoot_job_search",
+                                               "description":  null
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "lightfoot-reports",
+                        "version":  "1.0.7",
+                        "filename":  "lightfoot-reports-1.0.7.zip",
+                        "size_bytes":  37830,
+                        "last_write_utc":  "2026-03-31T09:38:20.1753518Z",
+                        "sha256":  "4f341805dfbc71cf9efcce5af05196f751f2d4856d55a186d505dc66adc96b45",
+                        "plugin_name":  "lightfoot-reports",
+                        "description":  "Lightfoot reports plugin (Chameleon).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "lightfoot_stock_report",
+                                               "description":  null
+                                           },
+                                           {
+                                               "tag":  "monthly_stock_report",
+                                               "description":  null
+                                           },
+                                           {
+                                               "tag":  "stock-report",
+                                               "description":  null
+                                           }
+                                       ]
+                    },
+                    {
+                        "slug":  "mask-login",
+                        "version":  "0.1.11",
+                        "filename":  "mask-login-0.1.11.zip",
+                        "size_bytes":  6341,
+                        "last_write_utc":  "2026-04-14T12:44:31.1244901Z",
+                        "sha256":  "a282467f91a731befb504a53f2a20eeb6e2753f0c4a17352b60709835cedf56e",
+                        "plugin_name":  "mask-login",
+                        "description":  "Mask wp-login/wp-admin for hardening (Chameleon).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "php-reports",
+                        "version":  "0.1.96",
+                        "filename":  "php-reports-0.1.96.zip",
+                        "size_bytes":  4154692,
+                        "last_write_utc":  "2026-04-28T20:13:43.1326595Z",
+                        "sha256":  "b8b3b6b993b829560c89338da7886c1a7d3a118684168bb2cd10d6224767b1fa",
+                        "plugin_name":  "php-reports",
+                        "description":  null,
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "redirects",
+                        "version":  "1.0.18",
+                        "filename":  "redirects-1.0.18.zip",
+                        "size_bytes":  11120,
+                        "last_write_utc":  "2026-04-20T10:19:38.6574376Z",
+                        "sha256":  "1d3482b0f48e31de8e4e15d367d086444ba3be349ee56a633c681af381d70f17",
+                        "plugin_name":  "redirects",
+                        "description":  "Redirect management plugin (legacy slug \u0027redirects\u0027).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "responsive-viewer",
+                        "version":  "0.1.2",
+                        "filename":  "responsive-viewer-0.1.2.zip",
+                        "size_bytes":  5743,
+                        "last_write_utc":  "2026-03-06T17:45:19.9569418Z",
+                        "sha256":  "a9159328c60a5241220ca523c98c434e47fe044a398234f4993b4d2dcd50956c",
+                        "plugin_name":  "responsive-viewer",
+                        "description":  "Responsive viewer utility plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woocommerce-central-manager-hub",
+                        "version":  "1.0.54",
+                        "filename":  "woocommerce-central-manager-hub-1.0.54.zip",
+                        "size_bytes":  60290,
+                        "last_write_utc":  "2026-05-05T09:18:19.2284581Z",
+                        "sha256":  "08e55ee1acd232dcfcb4be3797a82b3cde60e688a5fe9e2b5754cec3f1a6ef4e",
+                        "plugin_name":  "woocommerce-central-manager-hub",
+                        "description":  "WooCommerce Central Manager (hub) plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woocommerce-central-manager-satellite",
+                        "version":  "1.0.21",
+                        "filename":  "woocommerce-central-manager-satellite-1.0.21.zip",
+                        "size_bytes":  23416,
+                        "last_write_utc":  "2026-05-05T09:28:57.5665308Z",
+                        "sha256":  "620c2c28f6992e7c7c9a117fb702365cb44be9f43aece8f01fa26d85556bf609",
+                        "plugin_name":  "woocommerce-central-manager-satellite",
+                        "description":  "WooCommerce Central Manager (satellite) plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woocommerce-export-import-customer-order-details",
+                        "version":  "0.5.20",
+                        "filename":  "woocommerce-export-import-customer-order-details-0.5.20.zip",
+                        "size_bytes":  50891,
+                        "last_write_utc":  "2026-03-23T16:59:45.0913793Z",
+                        "sha256":  "c8e6eba776432df42a3f9f8912fa335b5ce0a36b1283afa1fb88854070384951",
+                        "plugin_name":  "woocommerce-export-import-customer-order-details",
+                        "description":  "Export/import WooCommerce customer + order details plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woo-erp-stock-sync",
+                        "version":  "0.1.20",
+                        "filename":  "woo-erp-stock-sync-0.1.20.zip",
+                        "size_bytes":  18024,
+                        "last_write_utc":  "2026-03-30T10:39:40.6829169Z",
+                        "sha256":  "ff9c5ce596cf62895cc81f2d76018d9d8d6f66920324da800e779d861cc5547a",
+                        "plugin_name":  "woo-erp-stock-sync",
+                        "description":  "WooCommerce ERP stock synchronization plugin (Chameleon).",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woo-product-badges",
+                        "version":  "1.3.15",
+                        "filename":  "woo-product-badges-1.3.15.zip",
+                        "size_bytes":  31257,
+                        "last_write_utc":  "2026-04-02T12:56:34.5091764Z",
+                        "sha256":  "7ee081d62623b6f3fc19f3710c19333203f5d0461d9cb23092a0a12d703d3c15",
+                        "plugin_name":  "woo-product-badges",
+                        "description":  "WooCommerce product badges / tag-based labels plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woo-product-gallery-images",
+                        "version":  "1.0.9",
+                        "filename":  "woo-product-gallery-images-1.0.9.zip",
+                        "size_bytes":  33801,
+                        "last_write_utc":  "2026-04-27T10:55:42.4754352Z",
+                        "sha256":  "5db6cdc03668531878df5b6986c8361007055345e014e89036ff46d0de61ccff",
+                        "plugin_name":  "woo-product-gallery-images",
+                        "description":  null,
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    }
+                ]
+}

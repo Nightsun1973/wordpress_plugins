@@ -1,0 +1,63 @@
+{
+  "excludePathPrefixes": [],
+  "excludeFiles": [],
+  "overrides": {
+    "erp-job-search-plugin/wordpress-plugin/chameleon-portal.php": {
+      "state": "issue",
+      "stateLabel": "Needs repair",
+      "desc": "Multi-module portal via shortcodes; plugin header/file structure is corrupted — fix before use.",
+      "version": "1.0.0"
+    },
+    "helpdesk/plugin/helpdesk.php": {
+      "state": "alpha",
+      "stateLabel": "Alpha"
+    },
+    "erp-connector/plugin/erp-connector.php": {
+      "state": "beta",
+      "stateLabel": "Core — under development"
+    },
+    "woocommerce/product_search/woocommerce-product-search.php": {
+      "state": "beta",
+      "stateLabel": "Starter / template"
+    },
+    "chameleon-portal-v1/chameleon-portal-v1.php": {
+      "state": "production",
+      "stateLabel": "Production (canonical)"
+    },
+    "erp-wordpress-plugin-v3/plugin/chameleon-portal-v1.php": {
+      "state": "legacy",
+      "stateLabel": "Legacy copy",
+      "desc": "Older packaged portal; header may enable debug error display — prefer chameleon-portal-v1."
+    },
+    "chameleon_chatbot/chameleon-chatbot.php": {
+      "state": "beta",
+      "stateLabel": "Beta / evolving"
+    },
+    "erp-wordpress-plugin-v2/erp-job-search.php": {
+      "state": "legacy",
+      "stateLabel": "Superseded",
+      "desc": "Job search with attachments; largely superseded by Chameleon Portal V1 in chameleon-portal-v1/."
+    },
+    "erp-wordpress-plugin-v3/erp-job-search.php": {
+      "state": "legacy",
+      "stateLabel": "Superseded",
+      "desc": "Job search with attachments; largely superseded by Chameleon Portal V1 in chameleon-portal-v1/."
+    },
+    "woocommerce/export-import-customer-order-details/plugin/woocommerce-export-import-customer-order-details.php": {
+      "state": "active",
+      "stateLabel": "Active"
+    },
+    "cc_complete_address/cc-complete-address/cc-complete-address.php": {
+      "state": "active",
+      "stateLabel": "Active maintenance"
+    },
+    "cc_media_cleanup/plugin/cc-media-cleanup.php": {
+      "state": "active",
+      "stateLabel": "Active maintenance"
+    },
+    "lf-stock-report/plugin/chameleon_reports/chameleon_reports.php": {
+      "state": "active",
+      "stateLabel": "Active"
+    }
+  }
+}

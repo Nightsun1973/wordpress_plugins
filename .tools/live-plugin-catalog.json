@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "plugins": {
+    "chameleon_reports": {
+      "description": "Chameleon reporting plugin (legacy naming with underscore). Provides stock reporting output.",
+      "shortcodes": {
+        "monthly_stock_report": "Renders a monthly stock report view."
+      }
+    },
+    "chameleon-booking": {
+      "description": "Booking plugin used in Chameleon client work. Provides a booking form/flow.",
+      "shortcodes": {
+        "Chameleon_Booking": "Renders the booking UI (form/flow)."
+      }
+    },
+    "chameleon-customer-location": {
+      "description": "Adds customer location features used by other Chameleon plugins."
+    },
+    "chameleon-demo-gate": {
+      "description": "Simple demo/gating plugin used in sample environments."
+    },
+    "chameleon-regional-stock-control": {
+      "description": "WooCommerce regional stock control / enforcement plugin."
+    },
+    "chameleon-reports": {
+      "description": "Chameleon reports plugin: daily jobs and stock report outputs.",
+      "shortcodes": {
+        "chameleon_daily_jobs": "Renders a daily jobs report/list.",
+        "chameleon_stock_report": "Renders a stock report view."
+      }
+    },
+    "chameleon-site-scan": {
+      "description": "Scans a WordPress site for common checks and outputs findings."
+    },
+    "customer-reports": {
+      "description": "Customer report pack: various stock/job reports for clients.",
+      "shortcodes": {
+        "2_year_detail": "Renders a two-year detail report (client-specific).",
+        "customer_daily_jobs": "Renders a customer daily jobs report.",
+        "customer_stock_report": "Renders a customer stock report.",
+        "lightfoot_daily_jobs": "Renders a Lightfoot daily jobs report.",
+        "lightfoot_stock_report": "Renders a Lightfoot stock report.",
+        "monthly_stock_report": "Renders a monthly stock report view.",
+        "stock-report": "Renders a stock report (legacy tag).",
+        "chameleon_daily_jobs": "Renders a daily jobs report/list.",
+        "chameleon_stock_report": "Renders a stock report view."
+      }
+    },
+    "email-send-and-log": {
+      "description": "Email utility plugin: send email and log results for diagnostics/auditing."
+    },
+    "engineer-move-serials": {
+      "description": "Tooling plugin to support engineer stock movements for serialized items."
+    },
+    "erp-connector": {
+      "description": "ERP connector plugin (Chameleon): connects WordPress to ERP endpoints/data."
+    },
+    "fleet-trak-dashboard": {
+      "description": "Fleet-Trak client dashboard plugin."
+    },
+    "knowles-booking": {
+      "description": "Knowles booking plugin (Chameleon).",
+      "shortcodes": {
+        "knowles_booking": "Renders the Knowles booking UI (form/flow)."
+      }
+    },
+    "knowles-data-dashboard": {
+      "description": "Knowles data dashboard plugin (Chameleon).",
+      "shortcodes": {
+        "knowles_dashboard": "Renders the Knowles dashboard UI."
+      }
+    },
+    "lightfoot-job-search": {
+      "description": "Lightfoot job search plugin (Chameleon)."
+    },
+    "lightfoot-reports": {
+      "description": "Lightfoot reports plugin (Chameleon)."
+    },
+    "mask-login": {
+      "description": "Mask wp-login/wp-admin for hardening (Chameleon)."
+    },
+    "redirects": {
+      "description": "Redirect management plugin (legacy slug 'redirects')."
+    },
+    "responsive-viewer": {
+      "description": "Responsive viewer utility plugin."
+    },
+    "woo-erp-stock-sync": {
+      "description": "WooCommerce ERP stock synchronization plugin (Chameleon)."
+    },
+    "woo-product-badges": {
+      "description": "WooCommerce product badges / tag-based labels plugin."
+    },
+    "woocommerce-central-manager-hub": {
+      "description": "WooCommerce Central Manager (hub) plugin."
+    },
+    "woocommerce-central-manager-satellite": {
+      "description": "WooCommerce Central Manager (satellite) plugin."
+    },
+    "woocommerce-export-import-customer-order-details": {
+      "description": "Export/import WooCommerce customer + order details plugin."
+    }
+  }
+}
+

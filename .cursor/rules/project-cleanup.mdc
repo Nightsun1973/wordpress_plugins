@@ -1,0 +1,14 @@
+---
+description: Project cleanup – documentation and links only; no functional or behaviour changes
+alwaysApply: true
+---
+
+# Project cleanup (from prompts/prompt-project-clean-up.md)
+
+When running project cleanup:
+
+- **Non-functional only:** Do not change behaviour, outputs, logic, UI, data structures, or public APIs.
+- **Documentation:** Use **`.docs/`** for project docs (e.g. `.docs/VERSIONING.md`, `.docs/DOCUMENTATION_STANDARDS.md`). Use **`/prompts`** when referring to prompt files (all prompts live at project root in `prompts/`).
+- **Links:** README and other docs at repo root should link to `.docs/` for standards and versioning (not bare `VERSIONING.md` which would imply root).
+- **`.docs` prune:** Remove redundant or one-off files from `.docs/` (e.g. one-time fix notes, duplicate test instructions, one-off comparison results). Update `.docs/README.md` structure list after removals.
+- **Version + commit:** Bump project version (PATCH for cleanup) and commit with a clear message (e.g. “Chore: project cleanup and documentation refresh”).

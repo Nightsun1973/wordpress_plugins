@@ -1,0 +1,37 @@
+---
+description: Run first – analyse project type; on every commit check compliance with latest WP, Elementor, PHP (or HTML/PHP) docs and security
+alwaysApply: true
+---
+
+# Project type and compliance
+
+## Run first: determine project type
+
+Before making changes, **analyse the project** to determine:
+
+- **WordPress** (plugin/theme): Main plugin/theme file (plugin header, `wp-content/plugins/` or `wp-content/themes/` structure), `readme.txt`, or use of WordPress APIs (`add_action`, `get_option`, etc.). → Apply **WordPress compliance** to those paths.
+- **Plain HTML/PHP**: Standalone `.php` and `.html` with no WordPress bootstrap or `wp-content` deployment. → Apply **plain HTML/PHP compliance** to those paths.
+- **Multi-plugin**: Repo contains **multiple** WordPress plugins (e.g. under `plugins/booking/`, `plugins/dashboard/plugin/`). → Treat **each plugin** as a WordPress project; apply WordPress compliance per plugin; each has its own version, CHANGELOG, and deployment.
+- **Mixed**: Repo contains **both** WordPress plugin(s) **and** plain HTML/PHP (e.g. plugin plus standalone web app in `plugins/dashboard/web/` or `/web`). → Apply **WordPress compliance** to plugin code only; apply **plain HTML/PHP** security and best practices to the standalone code; document which paths are plugin vs plain and how each is deployed.
+
+## If WordPress project (plugin/theme)
+
+**On every commit** (or as part of pre-commit/review):
+
+1. Check the project against **latest WordPress** and **Elementor** (if used) developer and security documentation.
+2. Check against current **PHP** developer and security guidelines (php.net, PHP-FIG, security advisories).
+3. Ensure code and configuration **comply** with recommended practices and any security updates.
+4. Update **all relevant files and documentation** so they reflect:
+   - Supported **WordPress** version(s) (e.g. “Requires at least” in plugin header and docs).
+   - Supported **PHP** version(s) (e.g. “Requires PHP” in plugin header and docs).
+   - **Elementor** version(s) tested with, if applicable.
+5. Document security-related changes or version bumps in the changelog.
+
+## If plain HTML/PHP project
+
+- Ensure compliance with **latest HTML** and **PHP** security and best practices (escaping, validation, HTTPS, dependency versions).
+- Update documentation with required PHP version and any security or compatibility notes.
+
+## Reminder
+
+When preparing a commit, confirm that the project type (and each area, if multi-plugin or mixed) has been considered and that version/security docs (plugin header, README, `/docs` or `.docs`) are up to date for the project type.

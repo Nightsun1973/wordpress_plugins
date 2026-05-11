@@ -1,0 +1,16 @@
+---
+description: Plugin optimisation – load only where needed, enqueue only when shortcode/widget present, no queries every load
+alwaysApply: true
+---
+
+# Optimisation rules
+
+When changing Knowles plugins, keep these rules (from `prompts/prompt-optimisation.md`):
+
+1. **Conditional loading:** Admin assets only on the plugin’s admin page(s) (e.g. check `$hook_suffix`). Frontend CSS/JS only when the plugin’s output is present (shortcode/widget); use a `has_*_shortcode()`-style check and force enqueue when the shortcode renders.
+2. **Scripts/styles:** Enqueue only when the feature is on the page. Use plugin version for cache busting; avoid `time()` or per-request values in version. Prefer JS in footer for non-critical scripts.
+3. **Database:** No queries on every request. Version upgrade / migrations only on activation or when stored version < current. Use get_option() with defaults.
+4. **Hooks:** Register hooks in the appropriate context (admin vs frontend); avoid global enqueues for feature-specific assets.
+5. **Frontend:** Use loading="lazy" where appropriate; respect prefers-reduced-motion; avoid layout shift.
+
+See `.docs/OPTIMISATION-AUDIT.md` for loading strategy and recent optimisation changes. Do not regress these when adding features or refactoring.

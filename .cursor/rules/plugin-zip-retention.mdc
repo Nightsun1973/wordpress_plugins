@@ -1,0 +1,28 @@
+---
+description: Only keep last 5 and x.0.0 release zips; delete others on a rolling basis
+alwaysApply: true
+---
+
+# Plugin zip retention
+
+Keep only a limited set of installation zips per plugin folder so `dist/` (and Knowles `plugins/dist/` when present) do not grow indefinitely.
+
+## Locations (per slug folder)
+
+- **This repo (Email Send and Log):** `dist/email-send-and-log/email-send-and-log-*.zip`
+- **Knowles (when `plugins/dist` exists):** `plugins/dist/knowles-booking/`, `plugins/dist/knowles-data-dashboard/`
+
+## Policy (per plugin folder)
+
+- **Keep:** The **5 most recent** versions (by semantic version, e.g. 1.9.8, 1.9.7, …).
+- **Keep:** All **major release** zips (version **X.0.0**, e.g. 2.0.0, 3.0.0).
+- **Delete:** Any other older zips on a rolling basis.
+
+## How it runs
+
+- **Script:** `.\scripts\cleanup-plugin-zips.ps1` (run from project root). Processes each known slug folder that exists.
+- **Automatic:** `build-plugin-zip.ps1` (this repo) calls cleanup after each build. Knowles builds `build-booking-zip.ps1` / `build-dashboard-zip.ps1` should call the same script after building when those scripts are used.
+
+## Reminder
+
+When adding or changing zip retention logic, keep this rule and `scripts/cleanup-plugin-zips.ps1` in sync.

@@ -1,0 +1,18 @@
+---
+description: All project scripts must live in the scripts folder
+alwaysApply: true
+---
+
+# Scripts in scripts/
+
+All project scripts (e.g. `.ps1`, `.sh`, build and utility scripts) must live in the **`scripts/`** folder at the project root.
+
+## Rules
+
+- **New scripts:** Create or add scripts only under `scripts/` (e.g. `scripts/build-booking-zip.ps1`, `scripts/cleanup-plugin-zips.ps1`).
+- **Invocation:** Run from project root with `.\scripts\<script-name>` (e.g. `.\scripts\sync-chameleon-standards.ps1`).
+- **References:** In docs and rules, point to `scripts/` (e.g. "Run `.\scripts\build-booking-zip.ps1`").
+
+## Reminder
+
+When adding or documenting a script, place it in `scripts/` and refer to it as `scripts/<name>`.

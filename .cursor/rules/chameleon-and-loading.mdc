@@ -1,0 +1,21 @@
+---
+description: Chameleon plugin conventions and conditional loading for Knowles project (Booking and Dashboard plugins).
+globs: plugins/**/*
+---
+
+# Chameleon and loading rules (Knowles)
+
+- **Plugin names:** Use the **Name (Chameleon)** convention (e.g. `Knowles Booking (Chameleon)`, `Knowles Dashboard (Chameleon)`). See [plugin-naming.mdc](plugin-naming.mdc). Admin menu stays under a single **Knowles** parent; submenus **Bookings** and **Dashboard**.
+- **Author:** Lee Carter; Author URI https://chameleoncodewing.co.uk. Text domains: `knowles-booking`, `knowles-data-dashboard`.
+- **Structure:** Deployable plugins under `plugins/booking/` (slug `knowles-booking`) and `plugins/dashboard/plugin/` (slug `knowles-data-dashboard`). Prompts and shared rules at project root (`/prompts`, `.cursor/rules`).
+
+## Conditional loading
+
+- **Booking plugin:** Admin CSS/JS only on the plugin’s admin page(s). Frontend CSS/JS only when the booking shortcode is present: use `has_booking_shortcode()` (or equivalent) and enqueue when the shortcode is rendered; avoid loading on every front request. No global enqueues for feature-specific assets.
+- **Dashboard plugin:** Admin assets only on the dashboard admin page (e.g. check screen ID or `$hook_suffix`). No frontend enqueues unless the plugin exposes a public shortcode or widget; then load only when that output is present.
+- **Database:** No queries on every request. Version upgrade / migrations only on activation or when stored version &lt; current. Use `get_option()` with defaults.
+- **Hooks:** Register admin hooks only in admin context; frontend hooks only when not admin (or when the feature is used). Reuse [optimisation.mdc](optimisation.mdc) and `.docs/OPTIMISATION-AUDIT.md`; do not regress loading strategy when adding features or refactoring.
+
+## Elementor
+
+If a plugin adds Elementor widgets or integration, follow [chameleon-elementor-when-applicable.mdc](chameleon-elementor-when-applicable.mdc). Load widget code only when registering via `elementor/widgets/register`; show an admin notice on the plugin page when Elementor is not active if the plugin depends on it.

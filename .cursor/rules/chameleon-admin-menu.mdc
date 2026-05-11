@@ -1,0 +1,42 @@
+---
+description: Chameleon plugins share wp-admin parent menu slug chameleon; one parent, per-plugin submenus
+alwaysApply: true
+---
+
+# Chameleon admin menu (shared parent)
+
+All **Chameleon**-branded plugins that add a wp-admin menu **must** use a **single shared top-level parent** so the sidebar does not show multiple “Chameleon” roots.
+
+## Parent slug (mandatory)
+
+- **Parent menu slug:** always **`chameleon`** (lowercase).
+- **Top-level menu title:** **Chameleon** (translatable).
+- **Do not** register `add_menu_page()` with the plugin’s own slug as the top-level menu slug (e.g. do not use `add_menu_page( ..., 'my-plugin-slug', ... )` as the root Chameleon entry).
+
+## Registration pattern
+
+1. **Register the parent only once** (first Chameleon plugin to load, or a tiny shared loader if you add one later):
+   - Use a process-wide guard: **`$GLOBALS['chameleon_wp_parent_menu_registered']`** (this exact key across all Chameleon plugins), set to true immediately before calling `add_menu_page()`.
+   - Parent callback: either a minimal **hub** screen listing Chameleon tools, or a **safe redirect** to the default first child (document the choice for multi-plugin sites).
+
+2. **Each plugin** adds its screens with **`add_submenu_page( 'chameleon', ... )`** using a **unique submenu slug** (typically the **plugin slug**), and the same capability model as today.
+
+3. **Remove the WordPress duplicate** first submenu entry (same slug as the parent) when appropriate: **`remove_submenu_page( 'chameleon', 'chameleon' )`** after submenus are registered (often `admin_menu` priority **999** if multiple plugins add items).
+
+## Parent icon (mandatory)
+
+- The **Chameleon parent** menu **must** always use the **car** Dashicon: **`dashicons-car`**, regardless of which child plugin registers the parent first. Child plugins **must not** change the parent icon when adding submenus.
+
+## Menu position (mandatory)
+
+- Register the parent with **`add_menu_page( ..., $position )`** using a **low numeric position** so Chameleon sits **as close to the top of the admin menu as possible** (immediately under **Dashboard** is the target).
+- **Standard position:** **`3`** — WordPress uses **2** for Dashboard and **4** for the first separator, so **3** places Chameleon directly below Dashboard without reordering core ahead of it.
+- If another plugin already occupies **3**, use the next free low integer (e.g. **3.1** or **5** only if necessary) but **never** default to a late position (e.g. 59); prefer the lowest slot that does not break core order.
+
+## Plugins list / links
+
+- **Settings** links and bookmarks should point at the **submenu** URL (`admin.php?page=<plugin-slug>`), not assume the parent slug is the settings page.
+
+## Multisite
+
+- If behaviour differs per site vs network admin, keep one consistent parent slug per context and document network-only Chameleon menus separately.

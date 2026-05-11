@@ -1,0 +1,38 @@
+---
+description: Auto-run README and Chameleon project standards when project is opened; ensure all prompts and rules are applied
+alwaysApply: true
+---
+
+# Chameleon project standards (auto-run)
+
+When this project is **opened** or at the **start of a session**, apply Chameleon project standards so that all work meets them.
+
+## Sync prompts and rules from development root
+
+**Run the sync script** so the **project running the README** gets the latest prompts and rules:
+
+- From the **project root** (folder containing README.md), run:  
+  `.\scripts\sync-chameleon-standards.ps1`
+- The **development root** (folder to scan and all below) is: (1) `CHAMELEON_DEV_ROOT` env var, (2) path in **`.chameleon-dev-root`** in project root, (3) parent of project. This project uses `.chameleon-dev-root` (e.g. `…\Development\git`). The script scans that root and all folders below for `prompts/VERSION`, finds the highest version, and if newer copies that location’s `prompts/` and `.cursor/rules/` **into this project**. Run when you open the project or “run the README”.
+
+## What to do
+
+1. **Use the README as the source of truth.** The project root **README.md** defines:
+   - **Run first:** Project analysis and compliance (determine WordPress vs plain HTML/PHP; on every commit check WP, Elementor, PHP docs and update versions/security).
+   - **Prompts** (listed in README under “Chameleon project standards”): all files in `/prompts` that define Chameleon and project workflows.
+   - **Cursor rules** (listed in README): all `.cursor/rules/*.mdc` files that persist those workflows.
+
+2. **Ensure everything meets Chameleon project standards** by:
+   - Determining project type (WordPress plugin/theme vs plain HTML/PHP) and applying the correct compliance workflow.
+   - Considering all **prompts** in `/prompts` (see README table) when making changes—e.g. cleanup, optimisation, Elementor/WordPress conventions.
+   - Applying all **Cursor rules** in `.cursor/rules/` (commit-on-change, project-compliance, chameleon-and-loading, prompts-to-rules, optimisation) as relevant to the task.
+
+3. **When making changes:** Before finishing, confirm that the README “Run first” and compliance steps are satisfied, that version and changelog are updated if required, and that no uncommitted changes remain (per commit-on-change).
+
+## Central location (dev root)
+
+Prompts and rules can live **in this repo** or in a **central dev root**. If the workspace is opened at a dev root (parent folder containing `prompts/` and `.cursor/rules/` plus project subfolders), then the **workspace root** holds the single set of prompts and rules; all projects in the workspace use them. See **docs/chameleon-dev-root.md** (or the project README) for setup. When using a dev root, treat the workspace root as the source for `/prompts` and `.cursor/rules/`.
+
+## Reminder
+
+This rule runs automatically when the project is opened. Keep README, `prompts/`, and `.cursor/rules/` in sync so that the listed prompts and rules accurately reflect Chameleon project standards (whether they live in-repo or at dev root).

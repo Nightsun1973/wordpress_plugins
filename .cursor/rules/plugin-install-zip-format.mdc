@@ -1,0 +1,43 @@
+---
+description: WordPress plugin install zip must be POSIX-safe (forward-slash entries, single top-level slug folder)
+alwaysApply: true
+---
+
+# WordPress plugin install zip format
+
+When building a plugin installation zip, the zip MUST:
+
+- Contain **a single top-level folder** named exactly the plugin **slug** (e.g. `kore-sim-manager/`).
+- Use **forward slashes (`/`)** in every zip entry path. **No backslashes.**
+- Match the install path WordPress will create: `wp-content/plugins/<slug>/<slug>.php`.
+
+## Why
+
+PowerShell's `Compress-Archive` (some PS versions) writes backslash (`\`) path separators in the zip's central directory. Linux/PHP (Cloudways, WP's `unzip_file()`) does NOT treat `\` as a directory separator, so:
+
+- WordPress sees no top-level folder and falls back to naming the install folder after the **zip filename** (e.g. `wp-content/plugins/kore-sim-manager-1.1.10/`).
+- Files extract flat with literal `\` in their names (e.g. `kore-sim-manager\includes\kore-admin.php` as one filename), so `require_once 'includes/kore-admin.php'` fatals with "Failed opening required ...".
+- Activation dies with **"Plugin file does not exist."**
+
+## What to do (always)
+
+Build all plugin install zips with the shared helper:
+
+`wordpress_plugins/.tools/scripts/build-plugin-install-zip.ps1`
+
+Each plugin's `scripts/build-*-zip.ps1` should:
+
+1. Find the `wordpress_plugins` root.
+2. Dot-source the shared helper.
+3. Call `Build-PluginInstallZip -SourceDir <plugin-folder> -Slug <slug> -Version <ver> -OutZip <dist/slug/slug-ver.zip>`.
+4. Call `Assert-PluginInstallZipPosixPaths -ZipPath <zip> -ExpectedSlug <slug>` to fail the build if the zip is not POSIX-safe.
+
+## What NOT to do
+
+- **Do NOT** use `Compress-Archive` to produce install zips.
+- **Do NOT** put the version in the install folder name (the version belongs only in the zip filename).
+- **Do NOT** ship "flat" zips (files at the zip root) — WP names the install folder after the zip filename.
+
+## Reference fix
+
+See `wordpress_plugins/chameleon/other/kore-sim-manager` (1.1.11) for a known-good build script and helper usage.

@@ -1,0 +1,8 @@
+---
+description: Block activation unless ERP Connector installed, active, and connected
+alwaysApply: true
+---
+
+# ERP-dependent plugins
+
+Plugins that require `erp_connector()` **must not activate** unless: (1) `function_exists('erp_connector')`, (2) connector active, (3) `erp_connector()->is_connected()` true. **On activation:** Check both; if either fails, `deactivate_plugins(plugin_basename(__FILE__))` then `wp_die()` with clear message and `['back_link' => true]`. Do not leave the plugin active in a broken state.

@@ -1,0 +1,14 @@
+---
+description: Email Send and Log (Chameleon) – WooCommerce + Mandrill plugin in this repo
+alwaysApply: true
+---
+
+# Email Send and Log (this repo)
+
+- **Slug:** `email-send-and-log`. Deployable code lives in **`plugin/`** (main file `email-send-and-log.php`). Text domain and option prefix: `email-send-and-log` / `email_send_and_log_*`.
+- **WooCommerce:** Required. Activation fails without WooCommerce; runtime deactivates with admin notice if WooCommerce is removed.
+- **Admin:** Shared parent **`chameleon`** (`dashicons-car`, position **3**) + submenu **`email-send-and-log`** (`manage_options`); see **chameleon-admin-menu.mdc**. **Settings** link on the Plugins list row per **plugin-settings-action-link.mdc**.
+- **Sending:** When enabled on the Chameleon settings screen, `pre_wp_mail` routes mail **only** through Mandrill Transactional API `messages/send.json` (includes WooCommerce emails via `wp_mail`). No SMTP/PHPMailer path in-plugin.
+- **Logging:** Custom tables for send log and optional debug log; admin tabs for settings, send log, debug log, **test** (Mandrill ping + test send); data cleanup on Settings; `uninstall.php` removes plugin data.
+- **Zip:** `.\scripts\build-plugin-zip.ps1` → `dist/email-send-and-log/email-send-and-log-<version>.zip` (see **plugin-zip-on-change.mdc**). Zips are gitignored.
+- **Version:** `plugin/VERSION`, main file `Version:` header, and `EMAIL_SEND_AND_LOG_VERSION` must stay in sync; maintain `plugin/CHANGELOG.md` per **plugin-version-bump.mdc**.

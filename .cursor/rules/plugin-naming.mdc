@@ -1,0 +1,54 @@
+---
+description: WordPress plugin naming and deployment – slug, folder, main file, text domain, options, constants
+alwaysApply: true
+---
+
+# Plugin naming rules
+
+When creating or deploying WordPress plugins in this repo, follow these rules so WordPress and installs (zip upload) work correctly.
+
+## Plugin slug
+
+- **Slug** = lowercase, hyphenated identifier (e.g. `knowles-booking`, `knowles-data-dashboard`).
+- Use the slug consistently for: deployed folder name, main plugin file name, text domain, script/style handles.
+
+## Deployed folder and main file
+
+- **Installed path:** `wp-content/plugins/<slug>/` (e.g. `wp-content/plugins/knowles-booking/`).
+- **Main plugin file:** `<slug>.php` in that folder (e.g. `knowles-booking/knowles-booking.php`).
+- WordPress expects to find the main file with the plugin header inside the folder; the **folder name and main file name must match** (both = slug) so that zip install and “Plugin file does not exist” are avoided.
+
+## Installation zip
+
+- **Storage (Knowles project rule):** Installation zips are stored in **`plugins/dist/<slug>/`** (e.g. `plugins/dist/knowles-booking/knowles-booking-1.9.5.zip`), **not** in `plugins/` root or inside each plugin source folder (e.g. not in `plugins/booking/`).
+- The zip must have **one top-level folder**, and that folder **must be the plugin slug** (e.g. `knowles-booking`).
+- Contents: `knowles-booking/knowles-booking.php`, `knowles-booking/VERSION`, etc.
+- Do **not** use a different root folder name (e.g. `booking`) when the main file is `knowles-booking.php`, or WordPress may show “Plugin file does not exist”.
+- Build the zip so the root of the zip is `<slug>/` and save the zip to **`plugins/dist/<slug>/<slug>-X.Y.Z.zip`** (see .docs/booking/README.md for the build steps).
+- **Always rebuild the zips** after any change that affects a plugin (code, version, naming, assets). Run from project root: `.\scripts\build-booking-zip.ps1` and `.\scripts\build-dashboard-zip.ps1` so deployment packages are up to date before finishing.
+
+## Code conventions (per plugin)
+
+- **Text domain:** Same as slug (e.g. `knowles-booking`). Use in every `__()`, `esc_html__()`, etc.
+- **Options / transients:** Prefix with slug using underscores (e.g. `knowles_booking_*`).
+- **Constants:** UPPER_SNAKE from slug (e.g. `KNOWLES_BOOKING_VERSION`, `KNOWLES_BOOKING_PATH`).
+- **Class prefix:** PascalCase from slug (e.g. `Knowles_Booking_Admin`, `Knowles_Booking_Public`).
+- **Plugin header:** `Plugin Name` must use the convention **Name (Chameleon)** so Chameleon plugins are identifiable (e.g. `Knowles Booking (Chameleon)`, `WooCommerce Export Import Customer Order Details (Chameleon)`). Put the release number only in the **`Version:`** header (and `VERSION` file / main plugin constant), **not** inside `Plugin Name`. Also set `Author`, `Author URI`, `Plugin URI` (https://chameleoncodewing.co.uk) as per project standards.
+- **Admin menus / settings screens:** Use **Name (Chameleon)** plus **v{version}** (from the plugin version constant) for the **submenu label and admin screen title** / `$title`, so editors see the running release in wp-admin. Do **not** put the version string inside the `Plugin Name` header.
+
+## Multi-plugin layout (this repo)
+
+- Repo paths: `plugins/booking/`, `plugins/dashboard/plugin/` (or similar). The **repo** folder name can differ from the slug (e.g. `booking` in repo).
+- When **deploying** (zip or copy), the **installed** folder must be the **plugin slug** (e.g. `knowles-booking`) so that the main file path is `wp-content/plugins/knowles-booking/knowles-booking.php`.
+
+## Checklist
+
+- [ ] Slug is lowercase with hyphens.
+- [ ] Main plugin file is `<slug>.php`.
+- [ ] Installation zip is saved in **`plugins/dist/<slug>/`** (e.g. `plugins/dist/knowles-booking/knowles-booking-1.9.5.zip`).
+- [ ] Installation zip has a single top-level folder named `<slug>`.
+- [ ] Text domain = slug.
+- [ ] Options/transients use slug with underscores as prefix.
+- [ ] Constants and class names use the same slug-derived naming.
+- [ ] After plugin changes, rebuild both zips (`build-booking-zip.ps1`, `build-dashboard-zip.ps1`).
+- [ ] `Plugin Name` includes **(Chameleon)** only (no `v` in the header); admin menu/screen title may append **v{version}**; **`Version:`** (and `VERSION` / constant) holds **MAJOR.MINOR.PATCH**.

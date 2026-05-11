@@ -1,0 +1,23 @@
+---
+description: Plugin version bump rules – patch on every change, minor for new functionality, major for new release
+alwaysApply: true
+---
+
+# Plugin version bump rules
+
+Version format is **MAJOR.MINOR.PATCH** (e.g. 1.9.5). Apply these rules when changing a plugin.
+
+## When to increment
+
+1. **PATCH (x.y.Z → x.y.Z+1)** – On **every change** to the plugin (fix, tweak, doc, style, refactor). After each logical change: bump the third number in that plugin’s `VERSION` file and add a brief entry to that plugin’s `CHANGELOG.md` in the same commit (or the one immediately after). Do not commit a version bump without a changelog entry.
+2. **MINOR (x.Y.0 → x.Y+1.0)** – Only when **adding functionality** (new feature, new capability). Reset PATCH to 0. Document under `### Added` (or similar) in `CHANGELOG.md`.
+3. **MAJOR (X.0.0 → X+1.0.0)** – Only when **explicitly stated** that this is a **new release** (e.g. go-live, major product change). Reset MINOR and PATCH to 0. Document in `CHANGELOG.md` and in commit message.
+
+## Per-plugin
+
+- **Knowles Booking:** `plugins/booking/VERSION`, `.docs/booking/CHANGELOG.md`. Also update the **Version:** (and `@version`) header in `plugins/booking/knowles-booking.php` so WordPress shows the correct version when installing or comparing plugins.
+- **Knowles Data Dashboard:** `plugins/dashboard/plugin/VERSION`, and that plugin’s changelog if present; also update the main plugin file’s Version header if it has one.
+
+## Reminder
+
+On every response that modifies a plugin, bump that plugin’s **PATCH** version and add a one-line changelog entry for the change, unless the user has asked for a minor or major bump (new functionality or new release).

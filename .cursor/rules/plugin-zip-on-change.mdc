@@ -1,0 +1,47 @@
+---
+description: Rebuild plugin installation zip on every change so there is a new version to install
+alwaysApply: true
+---
+
+# Plugin zip on every change
+
+After any change to a plugin, **rebuild that plugin’s installation zip** so there is a new version to install in WordPress. Installation zips are not committed (they are in `.gitignore`).
+
+## Also publish to live-plugins (latest-only)
+
+After rebuilding a plugin zip, publish the latest zip(s) to the shared folder:
+
+- **Publish:** `.\.tools\scripts\publish-live-plugins.ps1 -RepoRoot .`
+- **Result:** copies newest `dist/**/<slug>-<version>.zip` (or `plugins/dist/**/<slug>-<version>.zip`) into `wordpress_plugins/live-plugins/`, keeping **only the latest** per slug, regenerates `live-plugins/index.json`, and (if **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or legacy **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** is set) uploads zips + `index.json` over **SFTP** via **`scripts/sync-live-plugins-repo-ftp.ps1`** (`live-plugins/README.md`, **Posh-SSH** required).
+
+## Email Send and Log (this repo)
+
+- **Zip location:** `dist/email-send-and-log/email-send-and-log-<version>.zip`
+- **Build:** `.\scripts\build-plugin-zip.ps1` (from project root). Runs `cleanup-plugin-zips.ps1` after each build (**plugin-zip-retention.mdc**).
+
+## PHP Reports (Chameleon)
+
+- **Zip location:** `dist/php-reports/php-reports-<version>.zip`
+- **Build:** `.\scripts\build-zip.ps1` (from `wordpress_plugins/chameleon/tools/php-reports/` project root). This build also runs zip cleanup + publishes the latest zip to `wordpress_plugins/live-plugins/`.
+
+## Knowles (when present in a multi-plugin tree)
+
+- **Zip location:** `plugins/dist/<slug>/<slug>-<version>.zip` (e.g. `plugins/dist/knowles-booking/knowles-booking-1.9.7.zip`, `plugins/dist/knowles-data-dashboard/knowles-data-dashboard-1.3.73.zip`). One folder per plugin under `plugins/dist/`.
+- **Zip contents:** Single top-level folder = **plugin slug** (e.g. `knowles-booking/`, `knowles-data-dashboard/`), containing the main plugin file and all assets. WordPress requires this so “Plugin file does not exist” is avoided.
+- **Version:** Read from that plugin’s `VERSION` file. Keep the main plugin file’s **Version:** header in sync so WordPress shows the correct version when installing.
+- **Build from source:** No temp copy; zip is built directly from the plugin folder so file locks are avoided.
+
+## Build scripts (run from project root)
+
+1. **Knowles Booking** – After changing `plugins/booking/`, run:  
+   `.\scripts\build-booking-zip.ps1`  
+   Reads `plugins/booking/VERSION`, zips contents as `knowles-booking/` → `plugins/dist/knowles-booking/knowles-booking-<version>.zip`.
+2. **Knowles Data Dashboard** – After changing `plugins/dashboard/plugin/`, run:  
+   `.\scripts\build-dashboard-zip.ps1`  
+   Reads `plugins/dashboard/plugin/VERSION`, zips contents as `knowles-data-dashboard/` → `plugins/dist/knowles-data-dashboard/knowles-data-dashboard-<version>.zip`.
+3. **When to run** – After implementing a feature, fix, or version bump for that plugin. If you changed both plugins, run both scripts. Do not leave the session with plugin code changed but the zip outdated.
+4. **Zip retention** – `build-plugin-zip.ps1` runs `scripts/cleanup-plugin-zips.ps1` after each build. See **plugin-zip-retention.mdc**: only last 5 versions plus all x.0.0 release zips are kept per slug folder.
+
+## Reminder
+
+At the end of any response that modified a plugin, either state that the installation zip(s) were rebuilt (and where they are), or run the relevant build script(s) and then confirm.

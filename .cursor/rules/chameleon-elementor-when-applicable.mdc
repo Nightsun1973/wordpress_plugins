@@ -1,0 +1,26 @@
+---
+description: When creating or editing a Chameleon Elementor/WooCommerce plugin in this repo, follow the full prompt and checklist
+globs: plugins/**/*
+---
+
+# Chameleon Elementor plugin (when applicable)
+
+This repo is **multi-plugin** (Booking, Dashboard). It does **not** currently contain a Chameleon Elementor widget plugin. The prompt applies only when you add or work on a plugin that:
+
+- Provides **Elementor widgets** (extending `\Elementor\Widget_Base`), and
+- Integrates with **WooCommerce**, and
+- Uses Chameleon branding (e.g. "Woo &lt;Feature&gt; (Chameleon)").
+
+## When that applies
+
+1. **Follow in full:** `prompts/prompt-chameleon-elementor-plugin.md`.
+2. **Checklist:** Use section 14 (checklist for a new Chameleon Elementor plugin) before release.
+3. **Cursor rules:** Keep `.cursor/rules/*.mdc` in sync with the prompt (naming, structure, conditional loading, commit/versioning).
+4. **Structure:** New plugin deployable under `plugins/<name>/` (or `plugins/<name>/plugin/`); project root keeps only non-deployable files; prompts stay in `/prompts`.
+
+## Current Knowles plugins
+
+- **Knowles Booking:** Shortcode-based; Elementor-aware for conditional asset loading only. Not an Elementor widget plugin.
+- **Knowles Data Dashboard:** No Elementor or WooCommerce. Not in scope for this prompt.
+
+See `.docs/PROMPT-CHAMELEON-ELEMENTOR-AUDIT.md` for full applicability and Elementor usage in this repo.

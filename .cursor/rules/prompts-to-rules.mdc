@@ -1,0 +1,21 @@
+---
+description: When following a prompt from /prompts, create or update .cursor/rules/*.mdc so Cursor maintains the rules
+alwaysApply: true
+---
+
+# Prompts and Cursor rules
+
+When you apply or implement rules from a prompt in **`/prompts`** (e.g. `prompts/prompt-chameleon-elementor-plugin.md`, `prompts/prompt-optimisation.md`), ensure Cursor continues to enforce those rules by creating or updating **Cursor rule files** in **`.cursor/rules/`** (`.mdc`).
+
+## When to create or update .mdc files
+
+- The prompt defines **mandatory or long-lived** rules (e.g. commit after every change, load only where needed, project structure, prompts in `/prompts`).
+- The rules should apply across sessions without the user re-invoking the prompt.
+
+## What to do
+
+1. **Create or update** one or more files in `.cursor/rules/` with a short, descriptive name (e.g. `commit-on-change.mdc`, `chameleon-and-loading.mdc`). One rule file per concern is fine; one file can also summarise multiple rules from a prompt.
+2. **Format:** YAML frontmatter with `description` and optional `alwaysApply: true`, then markdown content that states the rules clearly.
+3. **Keep in sync:** If you change a prompt in `/prompts`, update the related `.cursor/rules/*.mdc` files so the rules stay aligned.
+
+See **`prompts/README.md`** (section “Cursor rules (.mdc)”) and existing `.cursor/rules/*.mdc` files for format and examples.
