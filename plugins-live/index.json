@@ -1,5 +1,5 @@
 ﻿{
-    "generated_utc":  "2026-05-11T15:49:16.1049400Z",
+    "generated_utc":  "2026-05-11T15:53:29.8905004Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -234,11 +234,11 @@
                     },
                     {
                         "slug":  "hello-update-test",
-                        "version":  "0.1.4",
-                        "filename":  "hello-update-test-0.1.4.zip",
-                        "size_bytes":  1516,
-                        "last_write_utc":  "2026-05-11T15:49:15.1107760Z",
-                        "sha256":  "c0ba1b79fa7c38e76515b1f66b44dc4048f17f2582e6586207b0a7eb321fb683",
+                        "version":  "0.1.5",
+                        "filename":  "hello-update-test-0.1.5.zip",
+                        "size_bytes":  1553,
+                        "last_write_utc":  "2026-05-11T15:53:28.7746638Z",
+                        "sha256":  "60e41095dd7dffd684b67ac16d5b4f1f58df74a8f8a99a8cf5b61a6f0e3c0e15",
                         "plugin_name":  "hello-update-test",
                         "description":  null,
                         "text_domain":  null,
