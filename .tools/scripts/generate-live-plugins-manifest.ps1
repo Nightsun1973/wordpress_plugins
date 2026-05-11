@@ -170,6 +170,8 @@ $manifest = [pscustomobject]@{
 }
 
 $json = $manifest | ConvertTo-Json -Depth 10
-Set-Content -LiteralPath $OutputPath -Value $json -Encoding UTF8
+# UTF-8 without BOM: PHP json_decode() often fails on BOM-prefixed files (Windows PowerShell UTF8 default).
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText($OutputPath, $json, $utf8NoBom)
 
 Write-Host \"WROTE $OutputPath\"
