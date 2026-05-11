@@ -1,17 +1,18 @@
 # =============================================================================
 # Umbrella Git (wordpress_plugins): shared tooling + live-plugins manifest only
 # =============================================================================
-# Per-plugin and per-client source lives in its own repository under chameleon/,
-# client/, plugins/, and archive/. Those trees are NOT tracked here — each
-# folder typically has its own .git. Open a plugin folder as its own workspace
-# when working on that product’s history.
+# Per-repo development trees: primarily under plugins/ (e.g. plugins/client/,
+# plugins/archive/, plugins/chameleon/ when relocated). Top-level chameleon/
+# may remain during migration. Those trees are NOT tracked here — each product
+# folder typically has its own .git.
 # =============================================================================
 
 # --- Per-repo source trees (own Git remotes) ---
+/plugins/
 /chameleon/
+# Legacy top-level buckets (ignore if recreated at repo root)
 /client/
 /archive/
-/plugins/
 
 # --- Optional root artefact ---
 /dist/

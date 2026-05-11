@@ -8,7 +8,7 @@ Each **plugin** has its **own Git repository** (product code, version, changelog
 
 This folder is the **single source of truth for the latest installation zip** of each plugin.
 
-Mirror it to a **public HTTPS** URL so client sites can pull updates. WordPress does not read this folder by itself. Sites need the **Chameleon Plugin Updates** connector (see `chameleon/other/chameleon-plugin-updates/`), which registers WordPress’s **`update_plugins_{hostname}`** handler for `admin.chameleoncodewing.co.uk` and reads `index.json`.
+Mirror it to a **public HTTPS** URL so client sites can pull updates. WordPress does not read this folder by itself. Sites need the **Chameleon Plugin Updates** connector (in this workspace that is usually under `plugins/chameleon/other/chameleon-plugin-updates/`; if you have not relocated trees yet, `chameleon/other/chameleon-plugin-updates/`), which registers WordPress’s **`update_plugins_{hostname}`** handler for `admin.chameleoncodewing.co.uk` and reads `index.json`.
 
 ### Update URI on each Chameleon plugin
 

@@ -20,7 +20,7 @@ Build scripts call the thin **`scripts/after-build-live-plugins.ps1`** in the pl
 
 Therefore:
 
-- **Recommended:** check out each plugin **under** this `wordpress_plugins` tree (e.g. `chameleon/other/email-send-and-log/`), matching your current layout. Use **Git submodules**, **subtrees**, or separate clones into that path if you want a distinct remote per folder.
+- **Recommended:** keep every development plugin/client checkout **under** `wordpress_plugins/plugins/` (e.g. `plugins/chameleon/other/email-send-and-log/`, `plugins/client/knowles/`). That keeps one clear bucket for repos the umbrella Git does not track. If anything still lives under a top-level `chameleon/` folder, relocate it to `plugins/chameleon/...` when you can so paths stay consistent. Use **Git submodules**, **subtrees**, or plain clones as you prefer.
 - **If a plugin is cloned in isolation** (no `wordpress_plugins` ancestor), post-build publish **skips** with a clear message. You can still run publish from a machine that has the umbrella tree:
 
   ```powershell
@@ -36,6 +36,6 @@ Therefore:
 
 ## Umbrella Git (this folder)
 
-The **`wordpress_plugins`** directory may use its **own Git repository** for shared files only. **`.gitignore`** excludes `chameleon/`, `client/`, `plugins/`, and `archive/` so nested per-product repos are not tracked by the umbrella. See root **`README.md`**.
+The **`wordpress_plugins`** directory may use its **own Git repository** for shared files only. **`.gitignore`** excludes **`plugins/`** (all dev trees), legacy top-level **`chameleon/`**, and optional root **`client/`** / **`archive/`** if those folders exist at the repo root. See root **`README.md`**.
 
 See also: `live-plugins/README.md` and `.cursor/rules/live-plugins-latest.mdc`.

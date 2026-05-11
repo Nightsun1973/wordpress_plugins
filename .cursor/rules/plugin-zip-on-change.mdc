@@ -22,7 +22,7 @@ After rebuilding a plugin zip, publish the latest zip(s) to the shared folder:
 ## PHP Reports (Chameleon)
 
 - **Zip location:** `dist/php-reports/php-reports-<version>.zip`
-- **Build:** `.\scripts\build-zip.ps1` (from `wordpress_plugins/chameleon/tools/php-reports/` project root). This build also runs zip cleanup + publishes the latest zip to `wordpress_plugins/live-plugins/`.
+- **Build:** `.\scripts\build-zip.ps1` (from this plugin’s project root, e.g. `wordpress_plugins/plugins/chameleon/tools/php-reports/` when dev trees live under `plugins/`, or `wordpress_plugins/chameleon/tools/php-reports/` if still at legacy top-level). This build also runs zip cleanup + publishes the latest zip to `wordpress_plugins/live-plugins/`.
 
 ## Knowles (when present in a multi-plugin tree)
 

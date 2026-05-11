@@ -40,4 +40,4 @@ Each plugin's `scripts/build-*-zip.ps1` should:
 
 ## Reference fix
 
-See `wordpress_plugins/chameleon/other/kore-sim-manager` (1.1.11) for a known-good build script and helper usage.
+See **`wordpress_plugins/plugins/chameleon/other/kore-sim-manager`** when using the `plugins/` dev bucket; otherwise **`wordpress_plugins/chameleon/other/kore-sim-manager`** (legacy top-level `chameleon/`) for a known-good build script and helper usage.

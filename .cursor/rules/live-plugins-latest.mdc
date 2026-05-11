@@ -12,7 +12,7 @@ This folder is intended to be mirrored (e.g. via FTP) to provide a WordPress upd
 
 - **Per plugin:** own Git repo (plugin code, build scripts, thin `scripts/after-build-live-plugins.ps1`).
 - **Shared publish:** only at **`wordpress_plugins` root** — `publish-live-plugins`, manifest generation, SFTP sync, `live-plugins/`. See `.docs/REPO-AND-PUBLISH-LAYOUT.md`.
-- Plugin checkouts should live **under** this tree so post-build can find `scripts/Run-AfterBuildLivePlugins.ps1` and the monorepo root; otherwise publish is skipped or must be run manually with `-RepoRoot`.
+- Plugin checkouts should live **under** this tree (prefer **`plugins/...`** for all dev repos) so post-build can find `scripts/Run-AfterBuildLivePlugins.ps1` and the monorepo root; otherwise publish is skipped or must be run manually with `-RepoRoot`.
 
 ## Workflow (required)
 

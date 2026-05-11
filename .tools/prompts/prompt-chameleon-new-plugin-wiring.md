@@ -18,7 +18,7 @@ Ask for anything not already stated in the chat. Do not guess slug or dependency
 |---|--------|----------------|
 | 1 | **Plugin slug** | Lowercase **kebab-case**; must equal deploy folder name, main PHP filename (`<slug>.php`), text domain, and zip prefix (`<slug>-<semver>.zip`). |
 | 2 | **Display name** | For `Plugin Name: … (Chameleon)` (no `v` in the header). |
-| 3 | **Filesystem path** | Path **under** `wordpress_plugins/` where the plugin repo root lives (must be a descendant of the monorepo so `Run-AfterBuildLivePlugins.ps1` can find the root). |
+| 3 | **Filesystem path** | Path **under** `wordpress_plugins/` where the plugin repo root lives — **prefer** `plugins/...` (e.g. `plugins/chameleon/other/<slug>/`, `plugins/client/<client>/<slug>/`). Must be a descendant of the monorepo so `Run-AfterBuildLivePlugins.ps1` can find the root. |
 | 4 | **Zip output layout** | Default: `dist/<slug>/<slug>-<version>.zip`. Alternative: `plugins/dist/<slug>/…` (Knowles-style). `publish-live-plugins.ps1` scans **both** `dist/` and `plugins/dist/` under **that plugin repo root**. |
 | 5 | **Build script name** | e.g. `scripts/build-plugin-zip.ps1` or `scripts/build-<slug>-zip.ps1` — align with repo convention; document in plugin `README.md`. |
 | 6 | **Hard dependencies** | WooCommerce, ERP connector, Elementor-only, etc. — drives activation checks and rules (see `.cursor/rules/erp-dependent-plugins.mdc` if ERP applies). |
@@ -50,7 +50,7 @@ Ask for anything not already stated in the chat. Do not guess slug or dependency
 
 ### 2.3 Zip retention
 
-- Add **`scripts/cleanup-plugin-zips.ps1`** in the plugin repo as a **thin wrapper** that locates `wordpress_plugins` and invokes **`.tools/scripts/cleanup-plugin-zips.ps1`** (copy pattern from e.g. `chameleon/other/email-send-and-log/scripts/cleanup-plugin-zips.ps1`).
+- Add **`scripts/cleanup-plugin-zips.ps1`** in the plugin repo as a **thin wrapper** that locates `wordpress_plugins` and invokes **`.tools/scripts/cleanup-plugin-zips.ps1`** (copy pattern from e.g. `plugins/chameleon/other/email-send-and-log/scripts/cleanup-plugin-zips.ps1`, or the same path under legacy top-level `chameleon/other/...`).
 - Call that wrapper from the build script **after** a successful zip build (before live-plugins).
 
 ### 2.4 Post-build: `live-plugins` + manifest + SFTP

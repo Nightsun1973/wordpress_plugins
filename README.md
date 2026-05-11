@@ -12,7 +12,9 @@ This folder is an **umbrella workspace**: shared **publish pipeline**, **Cursor 
 
 ## What this repo does **not** track
 
-Plugin and client **source** under `chameleon/`, `client/`, `plugins/`, and `archive/` — each of those directories is expected to be its **own Git repository**. They remain on disk for builds and `publish-live-plugins -RepoRoot`, but are listed in **`.gitignore`** so this umbrella repo stays small and history stays per product.
+All **per-product development** checkouts live under **`plugins/`** (for example `plugins/client/knowles`, `plugins/archive/…`, and Chameleon plugins under `plugins/chameleon/...` once moved). Each product directory is its **own Git repository**. These paths are **`.gitignore`d** so the umbrella repo only tracks shared tooling. A legacy top-level **`chameleon/`** tree may still exist until everything is under `plugins/chameleon/`; it stays ignored too.
+
+Builds and `publish-live-plugins.ps1 -RepoRoot` use the **plugin project root** path (where that product’s `README.md` lives), regardless of whether that is under `plugins/...` or a transitional `chameleon/...` path.
 
 ## Working on a single plugin
 
