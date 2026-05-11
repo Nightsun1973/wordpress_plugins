@@ -1,5 +1,5 @@
 ﻿{
-    "generated_utc":  "2026-05-11T15:40:14.4141485Z",
+    "generated_utc":  "2026-05-11T15:46:52.6346381Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -17,6 +17,20 @@
                                                "tag":  "monthly_stock_report",
                                                "description":  "Renders a monthly stock report view."
                                            }
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-admin",
+                        "version":  "1.1.0",
+                        "filename":  "chameleon-admin-1.1.0.zip",
+                        "size_bytes":  7423,
+                        "last_write_utc":  "2026-05-11T15:46:38.2735967Z",
+                        "sha256":  "b67e55d591a717b4d75bf80445064529cfe715dc80ec2efa9805b72ab3495849",
+                        "plugin_name":  "chameleon-admin",
+                        "description":  null,
+                        "text_domain":  null,
+                        "shortcodes":  [
+
                                        ]
                     },
                     {
@@ -59,20 +73,6 @@
                         "sha256":  "f46dbebfe8d7c1a6f846beec6be8b431f0f13fdce85e10f8244a0c4ffa77f802",
                         "plugin_name":  "chameleon-demo-gate",
                         "description":  "Simple demo/gating plugin used in sample environments.",
-                        "text_domain":  null,
-                        "shortcodes":  [
-
-                                       ]
-                    },
-                    {
-                        "slug":  "chameleon-plugin-updates",
-                        "version":  "1.0.1",
-                        "filename":  "chameleon-plugin-updates-1.0.1.zip",
-                        "size_bytes":  7023,
-                        "last_write_utc":  "2026-05-11T12:16:54.8626543Z",
-                        "sha256":  "1f7775862d9bad4cf2e677d635bb1b6cf2b6139b7fdb600feb3e0844c6288c48",
-                        "plugin_name":  "chameleon-plugin-updates",
-                        "description":  null,
                         "text_domain":  null,
                         "shortcodes":  [
 
@@ -234,11 +234,11 @@
                     },
                     {
                         "slug":  "hello-update-test",
-                        "version":  "0.1.2",
-                        "filename":  "hello-update-test-0.1.2.zip",
-                        "size_bytes":  3877,
-                        "last_write_utc":  "2026-05-11T15:40:13.3328578Z",
-                        "sha256":  "14c431727051a375d630220a407a921bbd85159d6fdc9e1dd1c53025c97584f1",
+                        "version":  "0.1.3",
+                        "filename":  "hello-update-test-0.1.3.zip",
+                        "size_bytes":  1471,
+                        "last_write_utc":  "2026-05-11T15:46:51.5583135Z",
+                        "sha256":  "8bc1e55c8490d1fa2ccf98c8909f5b6cb9e936a734d79461d08128cb880a9f05",
                         "plugin_name":  "hello-update-test",
                         "description":  null,
                         "text_domain":  null,

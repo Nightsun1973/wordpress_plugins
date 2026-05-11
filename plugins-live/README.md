@@ -8,7 +8,7 @@ Each **plugin** has its **own Git repository** (product code, version, changelog
 
 This folder is the **single source of truth for the latest installation zip** of each plugin.
 
-Mirror it to a **public HTTPS** URL so client sites can pull updates. WordPress does not read this folder by itself. Sites need the **Chameleon Plugin Updates** connector (in this workspace that is usually under `plugins-dev/chameleon/other/chameleon-plugin-updates/`; if you have not relocated trees yet, `chameleon/other/chameleon-plugin-updates/`), which registers WordPress’s **`update_plugins_{hostname}`** handler for `admin.chameleoncodewing.co.uk` and reads `index.json`.
+Mirror it to a **public HTTPS** URL so client sites can pull updates. WordPress does not read this folder by itself. Sites need the **Chameleon Admin** connector (in this workspace: `plugins-dev/chameleon/other/chameleon-admin/`), which registers WordPress’s **`update_plugins_{hostname}`** handler for `admin.chameleoncodewing.co.uk` and reads `index.json`.
 
 ### Update URI on each Chameleon plugin
 
@@ -16,7 +16,7 @@ In **every** Chameleon plugin’s main PHP file, add this header line (same valu
 
 `Update URI: https://admin.chameleoncodewing.co.uk/wp-content/uploads/plugin-repo`
 
-That tells core to use your host for updates instead of wordpress.org. The connector plugin (once active) answers those checks using the manifest and zip URLs. Override the repo base on a site with `CHAMELEON_PLUGIN_UPDATES_REPO_BASE` in `wp-config.php` if needed.
+That tells core to use your host for updates instead of wordpress.org. **Chameleon Admin** (once active) answers those checks using the manifest and zip URLs. Override the repo base on a site with **`CHAMELEON_ADMIN_REPO_BASE`** in `wp-config.php` if needed (legacy: **`CHAMELEON_PLUGIN_UPDATES_REPO_BASE`** is still read by Chameleon Admin when the new constant is not set).
 
 **Note:** If wordpress.org has already put a wrong “update” on a plugin file, core may skip the Update URI branch until that entry is cleared (see patterns like `erp-connector`’s `site_transient_update_plugins` filter in this workspace).
 
@@ -48,9 +48,9 @@ If zips are not in the same path as `index.json` (e.g. CDN subfolder), regenerat
 ## Site checklist
 
 1. Deploy the mirror over **HTTPS** (valid TLS; WordPress fetches zips server-side).
-2. Install **Chameleon Plugin Updates (Chameleon)** on the site and keep it **active**.
+2. Install **Chameleon Admin (Chameleon)** on the site and keep it **active**.
 3. Add **Update URI:** (repo folder URL) to **each** Chameleon plugin header — see above.
-4. Optionally override the manifest URL in **Chameleon → Plugin updates** if `index.json` is not at `{repo}/index.json`.
+4. Optionally override the manifest URL in **Chameleon → Chameleon Admin** if `index.json` is not at `{repo}/index.json`.
 5. Use **Dashboard → Updates** or **Plugins** to install updates like any other plugin.
 
 ## SFTP mirror (optional, after publish)

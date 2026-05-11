@@ -180,7 +180,7 @@ try {
         'scripts\build-plugin-zip.ps1',
         'scripts\build-zip.ps1',
         'scripts\build-erp-connector-zip.ps1',
-        'scripts\build-chameleon-plugin-updates-zip.ps1',
+        'scripts\build-chameleon-admin-zip.ps1',
         'scripts\build-kore-sim-manager-zip.ps1',
         'scripts\build-wccm-hub-zip.ps1',
         'scripts\build-wccm-satellite-zip.ps1',

@@ -22,7 +22,7 @@ Ask for anything not already stated in the chat. Do not guess slug or dependency
 | 4 | **Zip output layout** | Default: `dist/<slug>/<slug>-<version>.zip`. Alternative: `plugins/dist/<slug>/…` (Knowles-style). `publish-live-plugins.ps1` scans **both** `dist/` and `plugins/dist/` under **that plugin repo root**. |
 | 5 | **Build script name** | e.g. `scripts/build-plugin-zip.ps1` or `scripts/build-<slug>-zip.ps1` — align with repo convention; document in plugin `README.md`. |
 | 6 | **Hard dependencies** | WooCommerce, ERP connector, Elementor-only, etc. — drives activation checks and rules (see `.cursor/rules/erp-dependent-plugins.mdc` if ERP applies). |
-| 7 | **Update server** | If this plugin should receive updates via the Chameleon library: exact **`Update URI:`** line (see `plugins-live/README.md`) and confirm **Chameleon Plugin Updates** connector behaviour. |
+| 7 | **Update server** | If this plugin should receive updates via the Chameleon library: exact **`Update URI:`** line (see `plugins-live/README.md`) and confirm **Chameleon Admin** connector behaviour. |
 | 8 | **Admin UI** | Any settings screen? If yes: shared **`chameleon`** parent menu, unique submenu slug, **`plugin_action_links_*` → Settings** (see `.cursor/rules/chameleon-admin-menu.mdc`, `plugin-settings-action-link.mdc`). |
 | 9 | **Multiple deliverables** | Single zip only, or more than one slug (e.g. hub + satellite)? Each slug needs its own zip name pattern and usually its own build script tail calling `after-build-live-plugins.ps1`. |
 
