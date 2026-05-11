@@ -1,5 +1,5 @@
 ﻿{
-    "generated_utc":  "2026-05-11T15:53:29.8905004Z",
+    "generated_utc":  "2026-05-11T16:01:52.9403418Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -21,11 +21,11 @@
                     },
                     {
                         "slug":  "chameleon-admin",
-                        "version":  "1.1.1",
-                        "filename":  "chameleon-admin-1.1.1.zip",
-                        "size_bytes":  7470,
-                        "last_write_utc":  "2026-05-11T15:49:10.3774527Z",
-                        "sha256":  "e16e399ebdb667760158dbb1a525b85d16d394f1a493bf62289649c0ff1f1374",
+                        "version":  "1.1.2",
+                        "filename":  "chameleon-admin-1.1.2.zip",
+                        "size_bytes":  8244,
+                        "last_write_utc":  "2026-05-11T16:01:51.6941717Z",
+                        "sha256":  "e8c24b8923a9ac1e4dd847c62ce4fdcb479859a699e0caea6ec6f51af57140ba",
                         "plugin_name":  "chameleon-admin",
                         "description":  null,
                         "text_domain":  null,
