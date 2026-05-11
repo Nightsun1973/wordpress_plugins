@@ -50,7 +50,7 @@ If zips are not in the same path as `index.json` (e.g. CDN subfolder), regenerat
 1. Deploy the mirror over **HTTPS** (valid TLS; WordPress fetches zips server-side).
 2. Install **(Chameleon) Chameleon Admin** on the site and keep it **active**.
 3. Add **Update URI:** (repo folder URL) to **each** Chameleon plugin header — see above.
-4. Optionally override the manifest URL in **Chameleon → Chameleon Admin** if `index.json` is not at `{repo}/index.json`.
+4. Optionally override the manifest URL under **Chameleon → (Chameleon) Chameleon Admin** if `index.json` is not at `{repo}/index.json`.
 5. Use **Dashboard → Updates** or **Plugins** to install updates like any other plugin.
 
 ## SFTP mirror (optional, after publish)
