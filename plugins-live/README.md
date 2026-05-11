@@ -88,7 +88,7 @@ Install-Module -Name Posh-SSH -Scope CurrentUser -Force
 | `CHAMELEON_LIVE_PLUGINS_SFTP_ACCEPT_HOST_KEY` | No | Set to **`1`** on first connect to store host key |
 | `CHAMELEON_LIVE_PLUGINS_SFTP_NO_STRICT_HOSTKEY` | No | **`1`** = `-Force` (insecure; dev only) |
 
-The sync uploads every `*.zip` in `plugins-live/` plus **`index.json`**.
+The sync uploads every `*.zip` in `plugins-live/` plus **`index.json`**, then **removes remote `*.zip` files that are not in your local `plugins-live/` folder** so superseded versions (e.g. `hello-update-test-0.1.0.zip` after `0.1.1` ships) do not linger on the server. Set **`CHAMELEON_LIVE_PLUGINS_SFTP_NO_PRUNE=1`** in env to skip that deletion step.
 
 **Quick check (no zips):** `.\scripts\sync-live-plugins-repo-ftp.ps1 -SmokeTest`
 

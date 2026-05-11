@@ -20,6 +20,7 @@
     CHAMELEON_LIVE_PLUGINS_FTP_HOST, _FTP_USER, _FTP_PASSWORD, _FTP_REMOTE_DIR
 
   Optional:
+    CHAMELEON_LIVE_PLUGINS_SFTP_NO_PRUNE          set to 1 to skip deleting remote .zip files that are not present locally (default: prune stale zips after upload)
     CHAMELEON_LIVE_PLUGINS_SFTP_PORT              default 22
     CHAMELEON_LIVE_PLUGINS_SFTP_KEY_FILE        OpenSSH private key path (password = key passphrase if set)
     CHAMELEON_LIVE_PLUGINS_SFTP_ACCEPT_HOST_KEY  set to 1 to auto-accept new host key (first connect)
@@ -166,9 +167,12 @@ try {
     New-SFTPItem -SessionId $sid -Path $remoteNorm -ItemType Directory -Recurse -ErrorAction Stop | Out-Null
   }
 
+  $localZipNames = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+
   if (-not $SmokeTest) {
     $zips = Get-ChildItem -LiteralPath $LivePluginsDir -File -Filter *.zip -ErrorAction SilentlyContinue
     foreach ($z in $zips) {
+      [void]$localZipNames.Add($z.Name)
       Write-Host "SFTP: uploading $($z.Name) ..."
       Set-SFTPItem -SessionId $sid -Path $z.FullName -Destination $remoteNorm -Force -ErrorAction Stop
     }
@@ -182,6 +186,26 @@ try {
     Set-SFTPItem -SessionId $sid -Path $idx -Destination $remoteNorm -Force -ErrorAction Stop
   } else {
     Write-Host 'WARN: index.json missing locally.'
+  }
+
+  # Upload-only leaves superseded <slug>-<oldver>.zip on the server; mirror local plugins-live by removing remote zips we no longer ship.
+  $prune = $true
+  if ($env:CHAMELEON_LIVE_PLUGINS_SFTP_NO_PRUNE -and $env:CHAMELEON_LIVE_PLUGINS_SFTP_NO_PRUNE.Trim() -eq '1') {
+    $prune = $false
+  }
+  if ($prune -and -not $SmokeTest -and $localZipNames.Count -gt 0) {
+    try {
+      $remoteFiles = Get-SFTPChildItem -SessionId $sid -Path $remoteNorm -File -ErrorAction Stop
+      foreach ($rf in $remoteFiles) {
+        $base = [System.IO.Path]::GetFileName($rf.FullName)
+        if (-not $base -or $base -notmatch '\.zip$') { continue }
+        if ($localZipNames.Contains($base)) { continue }
+        Write-Host "SFTP: deleting stale remote $base ..."
+        Remove-SFTPItem -SessionId $sid -Path $rf.FullName -Force -ErrorAction Stop
+      }
+    } catch {
+      Write-Host "WARN: Remote zip prune failed (stale zips may remain on server): $($_.Exception.Message)"
+    }
   }
 
   Write-Host 'SFTP sync finished.'
