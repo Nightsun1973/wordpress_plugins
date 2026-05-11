@@ -174,4 +174,4 @@ $json = $manifest | ConvertTo-Json -Depth 10
 $utf8NoBom = New-Object System.Text.UTF8Encoding $false
 [System.IO.File]::WriteAllText($OutputPath, $json, $utf8NoBom)
 
-Write-Host \"WROTE $OutputPath\"
+Write-Host "WROTE $OutputPath"
