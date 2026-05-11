@@ -46,7 +46,7 @@ The **README.md** (section “Chameleon project standards (auto-run)”) lists *
 
 - **`VERSION`** – Version of this prompts + rules set (e.g. 1.0.0). Bump when you change a prompt or rule; use to compare with other projects when copying.
 - `prompt-chameleon-elementor-plugin.md` – Rules for Chameleon Elementor WordPress/WooCommerce plugins and widgets.
-- `prompt-chameleon-new-plugin-wiring.md` – **Monorepo only:** wire a new plugin repo under `wordpress_plugins` into the shared **live-plugins / publish / SFTP** release pipeline (run when creating a new plugin here).
+- `prompt-chameleon-new-plugin-wiring.md` – **Monorepo only:** wire a new plugin repo under `wordpress_plugins` into the shared **plugins-live / publish / SFTP** release pipeline (run when creating a new plugin here).
 - `prompt-wordpress-plugin-starter.md` – WordPress plugin project structure, versioning, and setup.
 - `prompt-project-clean-up.md` – Non-functional cleanup and documentation refresh.
 - `prompt-optimisation.md` – Performance and efficiency improvements for any plugin.

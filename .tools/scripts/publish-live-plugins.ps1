@@ -49,7 +49,7 @@ $wpRoot = Get-WordpressPluginsRoot -StartPath $repoRootPath
 if (-not $wpRoot) { throw "Could not locate wordpress_plugins root from: $repoRootPath" }
 
 if (-not $LivePluginsDir) {
-  $LivePluginsDir = Join-Path $wpRoot 'live-plugins'
+  $LivePluginsDir = Join-Path $wpRoot 'plugins-live'
 }
 
 New-Item -ItemType Directory -Force -Path $LivePluginsDir | Out-Null
@@ -91,7 +91,7 @@ foreach ($slug in ($bySlug.Keys | Sort-Object)) {
   $destName = "$($latest.Slug)-$($latest.Version).zip"
   $dest = Join-Path $LivePluginsDir $destName
 
-  # Remove any previous versions in live-plugins for this slug
+  # Remove any previous versions in plugins-live for this slug
   Get-ChildItem -LiteralPath $LivePluginsDir -File -Filter "$slug-*.zip" -ErrorAction SilentlyContinue | ForEach-Object {
     if ($_.FullName -ne $dest) {
       Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue
@@ -112,7 +112,7 @@ try {
     }
   }
 } catch {
-  Write-Host "WARN: live-plugins manifest not updated: $($_.Exception.Message)"
+  Write-Host "WARN: plugins-live manifest not updated: $($_.Exception.Message)"
 }
 
 # Optional: mirror to public repo over SFTP (env CHAMELEON_LIVE_PLUGINS_SFTP_HOST or CHAMELEON_LIVE_PLUGINS_FTP_HOST) — scripts/sync-live-plugins-repo-ftp.ps1

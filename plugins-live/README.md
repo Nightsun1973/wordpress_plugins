@@ -8,7 +8,7 @@ Each **plugin** has its **own Git repository** (product code, version, changelog
 
 This folder is the **single source of truth for the latest installation zip** of each plugin.
 
-Mirror it to a **public HTTPS** URL so client sites can pull updates. WordPress does not read this folder by itself. Sites need the **Chameleon Plugin Updates** connector (in this workspace that is usually under `plugins/chameleon/other/chameleon-plugin-updates/`; if you have not relocated trees yet, `chameleon/other/chameleon-plugin-updates/`), which registers WordPress’s **`update_plugins_{hostname}`** handler for `admin.chameleoncodewing.co.uk` and reads `index.json`.
+Mirror it to a **public HTTPS** URL so client sites can pull updates. WordPress does not read this folder by itself. Sites need the **Chameleon Plugin Updates** connector (in this workspace that is usually under `plugins-dev/chameleon/other/chameleon-plugin-updates/`; if you have not relocated trees yet, `chameleon/other/chameleon-plugin-updates/`), which registers WordPress’s **`update_plugins_{hostname}`** handler for `admin.chameleoncodewing.co.uk` and reads `index.json`.
 
 ### Update URI on each Chameleon plugin
 
@@ -34,7 +34,7 @@ The connector builds each plugin’s download URL as `dirname(manifest_url) + '/
 If zips are not in the same path as `index.json` (e.g. CDN subfolder), regenerate the manifest with a public base URL:
 
 ```powershell
-.\.tools\scripts\generate-live-plugins-manifest.ps1 -LivePluginsDir .\live-plugins -PublicBaseUrl "https://cdn.example.com/chameleon-plugins"
+.\.tools\scripts\generate-live-plugins-manifest.ps1 -LivePluginsDir .\plugins-live -PublicBaseUrl "https://cdn.example.com/chameleon-plugins"
 ```
 
 ## Rules
@@ -80,7 +80,7 @@ Install-Module -Name Posh-SSH -Scope CurrentUser -Force
 | `CHAMELEON_LIVE_PLUGINS_SFTP_ACCEPT_HOST_KEY` | No | Set to **`1`** on first connect to store host key |
 | `CHAMELEON_LIVE_PLUGINS_SFTP_NO_STRICT_HOSTKEY` | No | **`1`** = `-Force` (insecure; dev only) |
 
-The sync uploads every `*.zip` in `live-plugins/` plus **`index.json`**.
+The sync uploads every `*.zip` in `plugins-live/` plus **`index.json`**.
 
 **Quick check (no zips):** `.\scripts\sync-live-plugins-repo-ftp.ps1 -SmokeTest`
 
@@ -92,5 +92,5 @@ From a plugin repo root (with `README.md`), after setting FTP env vars:
 ..\..\..\scripts\publish-chameleon-plugin-release.ps1 -BumpPatch -ChangelogNote "Your change summary." -GitCommit
 ```
 
-Uses `plugin/VERSION` (or root `VERSION`), updates the main `plugin/*.php` **Version:** line, prepends to `plugin/CHANGELOG.md` or `CHANGELOG.md`, runs a detected `scripts\build-*.ps1`, then `publish-live-plugins` (local copy + manifest + FTP). `-GitCommit` stages `live-plugins/index.json` under `wordpress_plugins` and bumped files in the plugin repo if each tree has a `.git`.
+Uses `plugin/VERSION` (or root `VERSION`), updates the main `plugin/*.php` **Version:** line, prepends to `plugin/CHANGELOG.md` or `CHANGELOG.md`, runs a detected `scripts\build-*.ps1`, then `publish-live-plugins` (local copy + manifest + FTP). `-GitCommit` stages `plugins-live/index.json` under `wordpress_plugins` and bumped files in the plugin repo if each tree has a `.git`.
 

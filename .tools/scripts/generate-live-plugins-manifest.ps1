@@ -62,7 +62,7 @@ function Catalog-Plugin([object]$catalog, [string]$slug) {
 if (-not $LivePluginsDir) {
   $wpRoot = Find-WordpressPluginsRoot -start (Get-Location).Path
   if (-not $wpRoot) { throw 'Could not locate wordpress_plugins root.' }
-  $LivePluginsDir = Join-Path $wpRoot 'live-plugins'
+  $LivePluginsDir = Join-Path $wpRoot 'plugins-live'
 }
 if (-not $OutputPath) { $OutputPath = Join-Path $LivePluginsDir 'index.json' }
 

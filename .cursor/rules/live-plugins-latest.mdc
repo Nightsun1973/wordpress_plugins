@@ -1,18 +1,18 @@
 ---
-description: Publish latest plugin zips to wordpress_plugins/live-plugins (latest only)
+description: Publish latest plugin zips to wordpress_plugins/plugins-live (latest only)
 alwaysApply: true
 ---
 
-# Live plugins folder (latest zips only)
+# Plugins live folder (latest zips only)
 
-`wordpress_plugins/live-plugins/` must contain **only the latest install zip** for each plugin.
-This folder is intended to be mirrored (e.g. via FTP) to provide a WordPress update repository.
+`wordpress_plugins/plugins-live/` must contain **only the latest install zip** for each plugin.
+This folder is intended to be mirrored (e.g. via SFTP) to provide a WordPress update repository.
 
 ## Repository model
 
 - **Per plugin:** own Git repo (plugin code, build scripts, thin `scripts/after-build-live-plugins.ps1`).
-- **Shared publish:** only at **`wordpress_plugins` root** — `publish-live-plugins`, manifest generation, SFTP sync, `live-plugins/`. See `.docs/REPO-AND-PUBLISH-LAYOUT.md`.
-- Plugin checkouts should live **under** this tree (prefer **`plugins/...`** for all dev repos) so post-build can find `scripts/Run-AfterBuildLivePlugins.ps1` and the monorepo root; otherwise publish is skipped or must be run manually with `-RepoRoot`.
+- **Shared publish:** only at **`wordpress_plugins` root** — `publish-live-plugins`, manifest generation, SFTP sync, `plugins-live/`. See `.docs/REPO-AND-PUBLISH-LAYOUT.md`.
+- Plugin checkouts should live **under** this tree (prefer **`plugins-dev/...`** for all dev repos) so post-build can find `scripts/Run-AfterBuildLivePlugins.ps1` and the monorepo root; otherwise publish is skipped or must be run manually with `-RepoRoot`.
 
 ## Workflow (required)
 
@@ -24,18 +24,18 @@ When you bump a plugin version and/or rebuild distribution zips:
    `.\.tools\scripts\publish-live-plugins.ps1 -RepoRoot <plugin-repo-root>`
 
    This copies the newest `dist/**/<slug>-<version>.zip` (or `plugins/dist/**/<slug>-<version>.zip`) into:
-   - `wordpress_plugins/live-plugins/<slug>-<version>.zip`
+   - `wordpress_plugins/plugins-live/<slug>-<version>.zip`
 
-   It also regenerates `live-plugins/index.json`. If **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** (legacy alias) is set, it runs **`scripts/sync-live-plugins-repo-ftp.ps1`** (SFTP via **Posh-SSH**) to upload all `live-plugins/*.zip` and **`index.json`** (see `live-plugins/README.md`).
+   It also regenerates `plugins-live/index.json`. If **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** (legacy alias) is set, it runs **`scripts/sync-live-plugins-repo-ftp.ps1`** (SFTP via **Posh-SSH**) to upload all `plugins-live/*.zip` and **`index.json`** (see `plugins-live/README.md`).
 
-3. **Optional full release** (bump patch, build, publish, FTP, git): from the plugin repo root, `.\scripts\publish-chameleon-plugin-release.ps1` with `-BumpPatch`, `-ChangelogNote`, `-GitCommit` as needed (see `live-plugins/README.md`).
+3. **Optional full release** (bump patch, build, publish, FTP, git): from the plugin repo root, `.\scripts\publish-chameleon-plugin-release.ps1` with `-BumpPatch`, `-ChangelogNote`, `-GitCommit` as needed (see `plugins-live/README.md`).
 
 4. **Retention rule in live folder**:
-   - Keep **exactly one zip per slug** in `live-plugins/` (the publish script enforces this).
+   - Keep **exactly one zip per slug** in `plugins-live/` (the publish script enforces this).
 
 ## Git policy
 
-- `live-plugins/*.zip` must **not** be committed (they are ignored by `live-plugins/.gitignore`).
+- `plugins-live/*.zip` must **not** be committed (they are ignored by `plugins-live/.gitignore`).
 - It’s OK to commit the folder + README + scripts/rules that enforce this workflow.
-- Commit **`live-plugins/index.json`** when it changes (FTP upload uses the working tree copy).
+- Commit **`plugins-live/index.json`** when it changes (FTP upload uses the working tree copy).
 

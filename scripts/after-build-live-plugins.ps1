@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Publish the plugin repo's latest dist zip(s) to live-plugins and run SFTP sync when env is set.
+  Publish the plugin repo's latest dist zip(s) to plugins-live and run SFTP sync when env is set.
 
 .DESCRIPTION
   Lives under wordpress_plugins/scripts/. Invoked with -RepoRoot pointing at a plugin project root

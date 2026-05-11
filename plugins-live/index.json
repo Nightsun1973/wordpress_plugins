@@ -1,6 +1,6 @@
 ﻿{
-    "generated_utc":  "2026-05-11T13:06:24.5690899Z",
-    "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\live-plugins",
+    "generated_utc":  "2026-05-11T15:13:15.0824771Z",
+    "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
                         "slug":  "chameleon_reports",
@@ -227,6 +227,20 @@
                         "sha256":  "d2fa3a6f075d652608f7f21148db742eb79dbc67e3a761febf2d3088703e981e",
                         "plugin_name":  "fleet-trak-dashboard",
                         "description":  "Fleet-Trak client dashboard plugin.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "hello-update-test",
+                        "version":  "0.1.0",
+                        "filename":  "hello-update-test-0.1.0.zip",
+                        "size_bytes":  1271,
+                        "last_write_utc":  "2026-05-11T15:13:12.8706605Z",
+                        "sha256":  "ce07d96f79e46a7ed2e883c8c7c58c46d9ad5892f5bb49297003f3f201012ad6",
+                        "plugin_name":  "hello-update-test",
+                        "description":  null,
                         "text_domain":  null,
                         "shortcodes":  [
 

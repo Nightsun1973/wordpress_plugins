@@ -9,7 +9,7 @@
      and prepend a ## entry to plugin/CHANGELOG.md or CHANGELOG.md when -ChangelogNote is set.
   2. Run the build script (auto-detect common names if -BuildScriptRelative omitted).
   3. Call ..\.tools\scripts\publish-live-plugins.ps1 (copies zips, regenerates index.json, FTP if env set).
-  4. If -GitCommit: commit in wordpress_plugins (live-plugins/index.json) and/or in the plugin repo (version files).
+  4. If -GitCommit: commit in wordpress_plugins (plugins-live/index.json) and/or in the plugin repo (version files).
 
 .PARAMETER PluginRepoRoot
   Defaults to current directory.
@@ -184,7 +184,8 @@ try {
         'scripts\build-kore-sim-manager-zip.ps1',
         'scripts\build-wccm-hub-zip.ps1',
         'scripts\build-wccm-satellite-zip.ps1',
-        'scripts\build-mask-login-zip.ps1'
+        'scripts\build-mask-login-zip.ps1',
+        'scripts\build-hello-update-test-zip.ps1'
       )) {
       $p = Join-Path $repoRoot $cand
       if (Test-Path -LiteralPath $p) { $buildScript = $p; break }
@@ -203,11 +204,11 @@ Write-Host "PUBLISH-LIVE-PLUGINS: $repoRoot"
 & $publishScript -RepoRoot $repoRoot
 
 if ($GitCommit) {
-  $msg = if ($CommitMessage.Trim()) { $CommitMessage.Trim() } else { 'chore: plugin release (live-plugins + version)' }
+  $msg = if ($CommitMessage.Trim()) { $CommitMessage.Trim() } else { 'chore: plugin release (plugins-live + version)' }
   if (Test-Path -LiteralPath (Join-Path $wpRoot '.git')) {
     Push-Location -LiteralPath $wpRoot
     try {
-      git add -- 'live-plugins/index.json'
+      git add -- 'plugins-live/index.json'
       foreach ($p in $gitPathsWp) {
         git add -- $p 2>$null
       }

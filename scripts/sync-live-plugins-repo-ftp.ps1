@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Upload live-plugins zips and index.json to the public repo over SFTP (SSH).
+  Upload plugins-live zips and index.json to the public repo over SFTP (SSH).
 
 .DESCRIPTION
   Uses the Posh-SSH module (SSH.NET). FTP/FTPS is not supported here; Cloudways and many hosts expose SFTP on port 22.
@@ -118,7 +118,7 @@ $start = if ($LivePluginsDir) { $LivePluginsDir } else { (Get-Location).Path }
 $wpRoot = Find-WordpressPluginsRoot -start $start
 if (-not $LivePluginsDir) {
   if ($wpRoot) {
-    $LivePluginsDir = Join-Path $wpRoot 'live-plugins'
+    $LivePluginsDir = Join-Path $wpRoot 'plugins-live'
   } else {
     $LivePluginsDir = $start
   }
