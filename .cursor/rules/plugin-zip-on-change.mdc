@@ -12,7 +12,7 @@ After any change to a plugin, **rebuild that plugin’s installation zip** so th
 After rebuilding a plugin zip, publish the latest zip(s) to the shared folder:
 
 - **Publish:** `.\.tools\scripts\publish-live-plugins.ps1 -RepoRoot .`
-- **Result:** copies newest `dist/**/<slug>-<version>.zip` (or `plugins/dist/**/<slug>-<version>.zip`) into `wordpress_plugins/plugins-live/`, keeping **only the latest** per slug, regenerates `plugins-live/index.json`, and (if **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or legacy **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** is set) uploads zips + `index.json` over **SFTP** via **`scripts/sync-live-plugins-repo-ftp.ps1`** (`plugins-live/README.md`, **Posh-SSH** required).
+- **Result:** copies newest `dist/**/<slug>-<version>.zip` (or `plugins/dist/**/<slug>-<version>.zip`) into `wordpress_plugins/plugins-live/`, keeping **only the latest** per slug, regenerates `plugins-live/index.json`, then loads **`scripts/live-plugins-ftp.env`** when present and (if **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or legacy **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** is set) uploads zips + `index.json` over **SFTP** via **`scripts/sync-live-plugins-repo-ftp.ps1`** (`plugins-live/README.md`, **Posh-SSH** required). To upload only: **`.\scripts\push-plugins-live-to-server.ps1`** from the monorepo root.
 
 ## Email Send and Log (this repo)
 

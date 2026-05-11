@@ -115,6 +115,17 @@ try {
   Write-Host "WARN: plugins-live manifest not updated: $($_.Exception.Message)"
 }
 
+# Load SFTP credentials when scripts/live-plugins-ftp.env exists so uploads run after build without manually dot-sourcing load-live-plugins-ftp-env.ps1 in the same session.
+$ftpEnvFile = Join-Path $wpRoot 'scripts\live-plugins-ftp.env'
+$ftpEnvLoader = Join-Path $wpRoot 'scripts\load-live-plugins-ftp-env.ps1'
+if ((Test-Path -LiteralPath $ftpEnvFile) -and (Test-Path -LiteralPath $ftpEnvLoader)) {
+  try {
+    . $ftpEnvLoader
+  } catch {
+    Write-Host "WARN: Could not load scripts/live-plugins-ftp.env: $($_.Exception.Message)"
+  }
+}
+
 # Optional: mirror to public repo over SFTP (env CHAMELEON_LIVE_PLUGINS_SFTP_HOST or CHAMELEON_LIVE_PLUGINS_FTP_HOST) — scripts/sync-live-plugins-repo-ftp.ps1
 if (($env:CHAMELEON_LIVE_PLUGINS_SFTP_HOST -and $env:CHAMELEON_LIVE_PLUGINS_SFTP_HOST.Trim()) -or ($env:CHAMELEON_LIVE_PLUGINS_FTP_HOST -and $env:CHAMELEON_LIVE_PLUGINS_FTP_HOST.Trim())) {
   $syncScript = Join-Path $wpRoot 'scripts\sync-live-plugins-repo-ftp.ps1'

@@ -55,7 +55,15 @@ If zips are not in the same path as `index.json` (e.g. CDN subfolder), regenerat
 
 ## SFTP mirror (optional, after publish)
 
-`publish-live-plugins.ps1` runs **`scripts/sync-live-plugins-repo-ftp.ps1`** when **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or legacy **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** is set. Upload uses **SFTP (SSH)** via the **Posh-SSH** module (not FTP).
+`publish-live-plugins.ps1` runs **`scripts/sync-live-plugins-repo-ftp.ps1`** when **`CHAMELEON_LIVE_PLUGINS_SFTP_HOST`** or legacy **`CHAMELEON_LIVE_PLUGINS_FTP_HOST`** is set **after** loading **`scripts/live-plugins-ftp.env`** when that file exists (so you do not have to dot-source the loader in the same shell before every build).
+
+To **push the current `plugins-live/` folder to the server** without rebuilding:
+
+```powershell
+.\scripts\push-plugins-live-to-server.ps1
+```
+
+Upload uses **SFTP (SSH)** via the **Posh-SSH** module (not FTP).
 
 Install once (current user):
 
