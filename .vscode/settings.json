@@ -1,0 +1,7 @@
+{
+  // PHP Intelephense: bundled WordPress stubs (adds wp_* and related globals).
+  // Requires the "PHP Intelephense" extension (see .vscode/extensions.json).
+  // WooCommerce: not a built-in stub tag; add php-stubs/woocommerce-stubs via Composer
+  // and set "intelephense.environment.includePaths" if you need wc_* / WC_* symbols.
+  "intelephense.stubs": ["wordpress"]
+}
