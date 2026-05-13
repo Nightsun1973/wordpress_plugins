@@ -1,5 +1,5 @@
 {
-    "generated_utc":  "2026-05-13T12:40:00.8477515Z",
+    "generated_utc":  "2026-05-13T12:41:50.3762056Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -220,11 +220,11 @@
                     },
                     {
                         "slug":  "erp-job-search",
-                        "version":  "1.1.4",
-                        "filename":  "erp-job-search-1.1.4.zip",
-                        "size_bytes":  22738,
-                        "last_write_utc":  "2026-05-13T12:39:57.8566565Z",
-                        "sha256":  "17c2dd9bd7b90464341aa9f1f40f7c8db48ddd6dc514ab67d56dad619f5876b5",
+                        "version":  "1.1.5",
+                        "filename":  "erp-job-search-1.1.5.zip",
+                        "size_bytes":  22873,
+                        "last_write_utc":  "2026-05-13T12:41:49.2396654Z",
+                        "sha256":  "c62a035f2ece9b2e07cb3770942486f8e0d2b9f28913991590db335aceb9e2c1",
                         "plugin_name":  "erp-job-search",
                         "description":  "ERP job search (Chameleon): NC/PO/reg/VIN + attachments via ERP Connector; ported from Lightfoot Job Search.",
                         "text_domain":  null,
