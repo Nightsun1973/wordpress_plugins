@@ -1,5 +1,5 @@
 {
-    "generated_utc":  "2026-05-13T12:22:44.5348249Z",
+    "generated_utc":  "2026-05-13T12:40:00.8477515Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -220,18 +220,22 @@
                     },
                     {
                         "slug":  "erp-job-search",
-                        "version":  "1.0.0",
-                        "filename":  "erp-job-search-1.0.0.zip",
-                        "size_bytes":  8623,
-                        "last_write_utc":  "2026-05-13T12:22:41.8449820Z",
-                        "sha256":  "1bee0fa889e1889b8369b47a4dc2db7c97d83f1ab96ca6549d868581319a7eb9",
+                        "version":  "1.1.4",
+                        "filename":  "erp-job-search-1.1.4.zip",
+                        "size_bytes":  22738,
+                        "last_write_utc":  "2026-05-13T12:39:57.8566565Z",
+                        "sha256":  "17c2dd9bd7b90464341aa9f1f40f7c8db48ddd6dc514ab67d56dad619f5876b5",
                         "plugin_name":  "erp-job-search",
-                        "description":  "Vanilla ERP job vacancies list (Chameleon) via shortcode; requires ERP Connector.",
+                        "description":  "ERP job search (Chameleon): NC/PO/reg/VIN + attachments via ERP Connector; ported from Lightfoot Job Search.",
                         "text_domain":  null,
                         "shortcodes":  [
                                            {
                                                "tag":  "erp_job_search",
-                                               "description":  "Renders a vacancy list from ERP Connector."
+                                               "description":  "Renders the ERP job search UI (AJAX to connector)."
+                                           },
+                                           {
+                                               "tag":  "lightfoot_job_search",
+                                               "description":  "Legacy alias; same as erp_job_search."
                                            }
                                        ]
                     },

@@ -56,9 +56,10 @@
       "description": "ERP connector plugin (Chameleon): connects WordPress to ERP endpoints/data."
     },
     "erp-job-search": {
-      "description": "Vanilla ERP job vacancies list (Chameleon) via shortcode; requires ERP Connector.",
+      "description": "ERP job search (Chameleon): NC/PO/reg/VIN + attachments via ERP Connector; ported from Lightfoot Job Search.",
       "shortcodes": {
-        "erp_job_search": "Renders a vacancy list from ERP Connector."
+        "erp_job_search": "Renders the ERP job search UI (AJAX to connector).",
+        "lightfoot_job_search": "Legacy alias; same as erp_job_search."
       }
     },
     "fleet-trak-dashboard": {
