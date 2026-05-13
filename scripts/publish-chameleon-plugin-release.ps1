@@ -182,6 +182,7 @@ try {
         'scripts\build-erp-connector-zip.ps1',
         'scripts\build-chameleon-admin-zip.ps1',
         'scripts\build-kore-sim-manager-zip.ps1',
+        'scripts\build-erp-job-search-zip.ps1',
         'scripts\build-wccm-hub-zip.ps1',
         'scripts\build-wccm-satellite-zip.ps1',
         'scripts\build-mask-login-zip.ps1',

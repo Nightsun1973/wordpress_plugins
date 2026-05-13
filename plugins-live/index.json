@@ -1,5 +1,5 @@
 {
-    "generated_utc":  "2026-05-11T16:24:34.8603450Z",
+    "generated_utc":  "2026-05-13T12:22:44.5348249Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -216,6 +216,23 @@
                         "text_domain":  null,
                         "shortcodes":  [
 
+                                       ]
+                    },
+                    {
+                        "slug":  "erp-job-search",
+                        "version":  "1.0.0",
+                        "filename":  "erp-job-search-1.0.0.zip",
+                        "size_bytes":  8623,
+                        "last_write_utc":  "2026-05-13T12:22:41.8449820Z",
+                        "sha256":  "1bee0fa889e1889b8369b47a4dc2db7c97d83f1ab96ca6549d868581319a7eb9",
+                        "plugin_name":  "erp-job-search",
+                        "description":  "Vanilla ERP job vacancies list (Chameleon) via shortcode; requires ERP Connector.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+                                           {
+                                               "tag":  "erp_job_search",
+                                               "description":  "Renders a vacancy list from ERP Connector."
+                                           }
                                        ]
                     },
                     {

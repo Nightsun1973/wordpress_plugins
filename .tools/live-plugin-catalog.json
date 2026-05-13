@@ -55,6 +55,12 @@
     "erp-connector": {
       "description": "ERP connector plugin (Chameleon): connects WordPress to ERP endpoints/data."
     },
+    "erp-job-search": {
+      "description": "Vanilla ERP job vacancies list (Chameleon) via shortcode; requires ERP Connector.",
+      "shortcodes": {
+        "erp_job_search": "Renders a vacancy list from ERP Connector."
+      }
+    },
     "fleet-trak-dashboard": {
       "description": "Fleet-Trak client dashboard plugin."
     },
