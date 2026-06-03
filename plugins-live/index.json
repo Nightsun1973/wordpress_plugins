@@ -1,5 +1,5 @@
 {
-    "generated_utc":  "2026-05-20T09:36:35.2928064Z",
+    "generated_utc":  "2026-06-03T14:43:30.7711647Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -129,11 +129,11 @@
                     },
                     {
                         "slug":  "customer-reports",
-                        "version":  "1.1.16",
-                        "filename":  "customer-reports-1.1.16.zip",
-                        "size_bytes":  47950,
-                        "last_write_utc":  "2026-04-22T12:53:36.0207642Z",
-                        "sha256":  "705314878431248f6e89a8c041fff534f4b6f92ecb6726754937116bb689d15d",
+                        "version":  "1.1.17",
+                        "filename":  "customer-reports-1.1.17.zip",
+                        "size_bytes":  49441,
+                        "last_write_utc":  "2026-06-03T14:43:11.7074089Z",
+                        "sha256":  "b84e564a2b171fd27b535927a9a39e07312fda5cc84bdb19f9ed38f9a1b270a5",
                         "plugin_name":  "customer-reports",
                         "description":  "Customer report pack: various stock/job reports for clients.",
                         "text_domain":  null,
@@ -220,11 +220,11 @@
                     },
                     {
                         "slug":  "erp-job-search",
-                        "version":  "1.1.5",
-                        "filename":  "erp-job-search-1.1.5.zip",
-                        "size_bytes":  22873,
-                        "last_write_utc":  "2026-05-13T12:41:49.2396654Z",
-                        "sha256":  "c62a035f2ece9b2e07cb3770942486f8e0d2b9f28913991590db335aceb9e2c1",
+                        "version":  "1.2.2",
+                        "filename":  "erp-job-search-1.2.2.zip",
+                        "size_bytes":  25815,
+                        "last_write_utc":  "2026-06-01T14:39:11.7419354Z",
+                        "sha256":  "605222f9527a7173ba70fc1f7f79f32eccb2daed6bddeccdc1a9ff80fe215f27",
                         "plugin_name":  "erp-job-search",
                         "description":  "ERP job search (Chameleon): NC/PO/reg/VIN + attachments via ERP Connector; ported from Lightfoot Job Search.",
                         "text_domain":  null,
@@ -286,11 +286,11 @@
                     },
                     {
                         "slug":  "knowles-data-dashboard",
-                        "version":  "1.5.0",
-                        "filename":  "knowles-data-dashboard-1.5.0.zip",
-                        "size_bytes":  410911,
-                        "last_write_utc":  "2026-03-18T12:27:30.8790196Z",
-                        "sha256":  "a1680fb20f69e99bb5bcb5fbfd282f96fca4632aa3ce3a33b222c47751e74178",
+                        "version":  "1.5.1",
+                        "filename":  "knowles-data-dashboard-1.5.1.zip",
+                        "size_bytes":  417037,
+                        "last_write_utc":  "2026-05-29T14:37:28.2206074Z",
+                        "sha256":  "09283c4c27b035d8d60566b75451cd27e32b7a36f4fda8bf2058904a3d68a352",
                         "plugin_name":  "knowles-data-dashboard",
                         "description":  "Knowles data dashboard plugin (Chameleon).",
                         "text_domain":  null,
@@ -359,18 +359,18 @@
                     },
                     {
                         "slug":  "lkq-reports",
-                        "version":  "1.0.0",
-                        "filename":  "lkq-reports-1.0.0.zip",
-                        "size_bytes":  46212,
-                        "last_write_utc":  "2026-05-20T09:36:32.0351384Z",
-                        "sha256":  "9c2775c74f5116756dfea34c4fed714598139ca1dc3f0e9f69582e4cc11555a4",
+                        "version":  "1.0.1",
+                        "filename":  "lkq-reports-1.0.1.zip",
+                        "size_bytes":  46442,
+                        "last_write_utc":  "2026-05-20T09:54:13.1696615Z",
+                        "sha256":  "cface1e24a4697434cd6d01351d28d86ceed0bac4366e31cccf41e83a876f069",
                         "plugin_name":  "lkq-reports",
-                        "description":  null,
+                        "description":  "LKQ customer portal reports (Chameleon): stock, daily jobs, 2-year detail. Default ERP client ID 328.",
                         "text_domain":  null,
                         "shortcodes":  [
                                            {
                                                "tag":  "2_year_detail",
-                                               "description":  null
+                                               "description":  "Two-year detail report."
                                            },
                                            {
                                                "tag":  "chameleon_daily_jobs",
@@ -382,11 +382,11 @@
                                            },
                                            {
                                                "tag":  "customer_daily_jobs",
-                                               "description":  null
+                                               "description":  "Customer-agnostic daily jobs alias."
                                            },
                                            {
                                                "tag":  "customer_stock_report",
-                                               "description":  null
+                                               "description":  "Customer-agnostic stock report alias."
                                            },
                                            {
                                                "tag":  "lightfoot_daily_jobs",
@@ -398,11 +398,11 @@
                                            },
                                            {
                                                "tag":  "lkq_daily_jobs",
-                                               "description":  null
+                                               "description":  "Renders the LKQ daily jobs report."
                                            },
                                            {
                                                "tag":  "lkq_stock_report",
-                                               "description":  null
+                                               "description":  "Renders the LKQ stock report."
                                            },
                                            {
                                                "tag":  "monthly_stock_report",
