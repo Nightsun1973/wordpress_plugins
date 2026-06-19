@@ -1,5 +1,5 @@
 {
-    "generated_utc":  "2026-06-03T14:43:30.7711647Z",
+    "generated_utc":  "2026-06-19T10:07:24.0987697Z",
     "live_plugins_dir":  "C:\\Users\\LeeCarter\\OneDrive - Chameleon Codewing Ltd\\development\\cursor\\wordpress_plugins\\plugins-live",
     "plugins":  [
                     {
@@ -73,6 +73,20 @@
                         "sha256":  "f46dbebfe8d7c1a6f846beec6be8b431f0f13fdce85e10f8244a0c4ffa77f802",
                         "plugin_name":  "chameleon-demo-gate",
                         "description":  "Simple demo/gating plugin used in sample environments.",
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "chameleon-mailer",
+                        "version":  "1.3.12",
+                        "filename":  "chameleon-mailer-1.3.12.zip",
+                        "size_bytes":  53764,
+                        "last_write_utc":  "2026-06-19T10:07:22.8774415Z",
+                        "sha256":  "5e54fe8f2ffacfb249530a074946cdb79a794fac12635e34fbd5308b9be2e4ff",
+                        "plugin_name":  "chameleon-mailer",
+                        "description":  null,
                         "text_domain":  null,
                         "shortcodes":  [
 
@@ -542,12 +556,26 @@
                     },
                     {
                         "slug":  "woo-product-gallery-images",
-                        "version":  "1.0.9",
-                        "filename":  "woo-product-gallery-images-1.0.9.zip",
-                        "size_bytes":  33801,
-                        "last_write_utc":  "2026-04-27T10:55:42.4754352Z",
-                        "sha256":  "5db6cdc03668531878df5b6986c8361007055345e014e89036ff46d0de61ccff",
+                        "version":  "1.0.21",
+                        "filename":  "woo-product-gallery-images-1.0.21.zip",
+                        "size_bytes":  38035,
+                        "last_write_utc":  "2026-06-12T13:27:13.9734750Z",
+                        "sha256":  "d16ff0303721e7a7aeb062e2dde79e2e82573e5a4964abfa08bf890aec592806",
                         "plugin_name":  "woo-product-gallery-images",
+                        "description":  null,
+                        "text_domain":  null,
+                        "shortcodes":  [
+
+                                       ]
+                    },
+                    {
+                        "slug":  "woo-variation-manager",
+                        "version":  "1.0.8",
+                        "filename":  "woo-variation-manager-1.0.8.zip",
+                        "size_bytes":  30410,
+                        "last_write_utc":  "2026-06-12T13:15:02.5987188Z",
+                        "sha256":  "34b733f4838b146f151fb7d0f7b9ed6ad7049a244da38ce49b2c2c25d0f71e54",
+                        "plugin_name":  "woo-variation-manager",
                         "description":  null,
                         "text_domain":  null,
                         "shortcodes":  [
