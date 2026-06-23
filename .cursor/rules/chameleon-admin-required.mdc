@@ -1,0 +1,74 @@
+---
+description: Chameleon Admin required for all Chameleon product plugins; Update URI mandatory
+alwaysApply: true
+---
+
+# Chameleon Admin required + Update URI
+
+Every **Chameleon product plugin** whose **`Plugin Name`** header starts with **`(Chameleon)`** must follow the rules below — **including `chameleon-admin`**, except where noted for the **hub plugin** only.
+
+## Display name vs Plugins list name
+
+- **Plugins list (`Plugin Name` header):** `(Chameleon) {Display Name}` — groups Chameleon products together in wp-admin.
+- **Everywhere else** (Chameleon submenu, screen titles, notices, Elementor widget titles): **display name only** (no `(Chameleon)`). Optional `v{version}` on admin screens.
+- **Canonical display names + descriptions:** `.tools/chameleon-plugin-manifest.json`. Normalize headers: `.\scripts\normalize-chameleon-plugin-headers.ps1`; strip UI labels: `.\scripts\strip-chameleon-admin-display-labels.ps1`.
+- **Author:** `Lee Carter` on every plugin header.
+- **Slug / zip:** functional kebab-case slug only (`email-send-and-log-1.0.0.zip` → `wp-content/plugins/email-send-and-log/`). No extra `chameleon-` prefix unless the product slug is literally `chameleon-admin`, `chameleon-mailer`, etc.
+
+## Update URI (mandatory)
+
+In the main plugin PHP header, after `Plugin URI`:
+
+`Update URI: https://admin.chameleoncodewing.co.uk/wp-content/uploads/plugin-repo`
+
+Same URL on every plugin. Enables updates via **(Chameleon) Chameleon Admin** + `plugins-live` / `index.json`.
+
+## Requires Plugins header (WP 6.5+)
+
+Add on **every Chameleon product plugin except the hub:**
+
+`Requires Plugins: chameleon-admin`
+
+The **hub** (`chameleon-admin` today) does **not** list itself here — WordPress cannot require a plugin to depend on itself.
+
+## Activation and runtime guard (mandatory on child plugins only)
+
+**Every Chameleon plugin except the hub** must wire the bootstrap. The hub does **not** include `chameleon-require-admin.php` or call `chameleon_plugin_require_admin_bootstrap()`.
+
+1. Copy **`.tools/templates/chameleon-require-admin.php`** to **`includes/chameleon-require-admin.php`** in the deployable plugin folder (next to or under the main file).
+2. In the **main plugin file**, immediately after the `ABSPATH` guard:
+
+```php
+require_once __DIR__ . '/includes/chameleon-require-admin.php';
+chameleon_plugin_require_admin_bootstrap( __FILE__, '<text-domain>' );
+```
+
+Use the plugin **text domain** (usually the slug). Register **before** any other `register_activation_hook` on the same file so Admin is checked first.
+
+3. **On activation:** if `chameleon-admin` is not active → `deactivate_plugins( plugin_basename( __FILE__ ) )` then `wp_die()` with `['back_link' => true]` (same pattern as **erp-dependent-plugins.mdc**).
+4. **At runtime:** on `plugins_loaded` priority `1`, if Admin was deactivated, show an admin error notice and deactivate this plugin.
+
+## Hub plugin: `chameleon-admin` (and any future replacement)
+
+There is **one hub per site** — today **`chameleon-admin`**. It is the exception only for **self-dependency**, not for Chameleon product standards.
+
+| Requirement | Hub (`chameleon-admin`) | All other `(Chameleon)` plugins |
+|-------------|-------------------------|----------------------------------|
+| `(Chameleon)` **Plugin Name**, Lee Carter, description | **Yes** | **Yes** |
+| **Update URI** (repo updates) | **Yes** — must receive updates like any other plugin | **Yes** |
+| **`Requires Plugins: chameleon-admin`** | **No** — must not require itself | **Yes** (or require the new hub slug if renamed) |
+| **`chameleon-require-admin` bootstrap** | **No** — must not block its own activation | **Yes** |
+
+If you ship a **new** hub plugin (e.g. rename slug or split Admin into a successor):
+
+1. Treat **only that slug** as the hub (one exception for self-require).
+2. Update **all child plugins**: `Requires Plugins: <new-hub-slug>`, and point `chameleon_plugin_is_admin_active()` / bootstrap at `<new-hub-slug>/<new-hub-slug>.php` (or keep checking `chameleon-admin` during a migration window — document in CHANGELOG).
+3. The **new** hub still gets **Update URI** and naming rules; it still does **not** require itself.
+
+## New plugins
+
+When scaffolding a plugin, wire both **Update URI** and **chameleon-require-admin** in the first commit. See **`prompt-chameleon-new-plugin-wiring.md`** and run **`scripts/wire-chameleon-admin-dependency.ps1`** on existing repos when backfilling.
+
+## Reminder
+
+Sites must install **(Chameleon) Chameleon Admin** once per site before any other Chameleon plugin can activate.

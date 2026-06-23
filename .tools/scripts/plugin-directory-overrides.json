@@ -16,7 +16,7 @@
       "state": "beta",
       "stateLabel": "Core — under development"
     },
-    "woocommerce/product_search/woocommerce-product-search.php": {
+    "woocommerce/product_search/woo-product-search.php": {
       "state": "beta",
       "stateLabel": "Starter / template"
     },
@@ -43,15 +43,15 @@
       "stateLabel": "Superseded",
       "desc": "Job search with attachments; largely superseded by Chameleon Portal V1 in chameleon-portal-v1/."
     },
-    "woocommerce/export-import-customer-order-details/plugin/woocommerce-export-import-customer-order-details.php": {
+    "woocommerce/export-import-customer-order-details/plugin/woo-export-import-customer-order-details.php": {
       "state": "active",
       "stateLabel": "Active"
     },
-    "cc_complete_address/cc-complete-address/cc-complete-address.php": {
+    "cc_complete_address/complete-address/complete-address.php": {
       "state": "active",
       "stateLabel": "Active maintenance"
     },
-    "cc_media_cleanup/plugin/cc-media-cleanup.php": {
+    "cc_media_cleanup/plugin/media-cleanup.php": {
       "state": "active",
       "stateLabel": "Active maintenance"
     },

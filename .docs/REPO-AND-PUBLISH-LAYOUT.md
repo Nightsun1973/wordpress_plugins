@@ -38,4 +38,33 @@ Therefore:
 
 The **`wordpress_plugins`** directory may use its **own Git repository** for shared files only. **`.gitignore`** excludes **`plugins-dev/`** (all dev trees), legacy top-level **`chameleon/`**, and optional root **`client/`** / **`archive/`** if those folders exist at the repo root. See root **`README.md`**.
 
+## IDE: load all nested plugin repositories
+
+From the monorepo root:
+
+```powershell
+.\scripts\discover-plugins-dev-workspace.ps1
+```
+
+Then open **`plugins-dev-active.code-workspace`** (recommended) or **`wordpress_plugins.code-workspace`**.
+
+That registers the umbrella repo plus every **`plugins-dev/**`** Git checkout as separate workspace folders so Source Control and Git Graph list each repository.
+
+### New plugin: Git + workspace wiring
+
+When adding a new plugin under **`plugins-dev/`**:
+
+```powershell
+.\scripts\wire-plugin-git-workspace.ps1 -PluginPath plugins-dev/chameleon/other/<slug> -CreateRemote -GitHubRepo <slug>
+# or: -RemoteUrl https://github.com/Nightsun1973/<slug>.git
+```
+
+Then commit and push from the plugin root. Audit all remotes:
+
+```powershell
+.\scripts\audit-plugins-dev-git.ps1 -ExcludeArchive
+```
+
+See **`.tools/prompts/prompt-chameleon-new-plugin-wiring.md`** §2.6.
+
 See also: `plugins-live/README.md` and `.cursor/rules/live-plugins-latest.mdc`.

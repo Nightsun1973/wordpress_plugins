@@ -1,0 +1,186 @@
+{
+  "folders": [
+    {
+      "name": "wordpress_plugins (umbrella)",
+      "path": "."
+    },
+    {
+      "name": "chameleon_chatbot (archive/chameleon_chatbot)",
+      "path": "plugins-dev/archive/chameleon_chatbot"
+    },
+    {
+      "name": "chameleon-portal-v1 (archive/chameleon-portal-v1)",
+      "path": "plugins-dev/archive/chameleon-portal-v1"
+    },
+    {
+      "name": "email_alert_archive (archive/email_alert_archive)",
+      "path": "plugins-dev/archive/email_alert_archive"
+    },
+    {
+      "name": "erp-wordpress-plugin-v2 (archive/erp-wordpress-plugin-v2)",
+      "path": "plugins-dev/archive/erp-wordpress-plugin-v2"
+    },
+    {
+      "name": "erp-wordpress-plugin-v3 (archive/erp-wordpress-plugin-v3)",
+      "path": "plugins-dev/archive/erp-wordpress-plugin-v3"
+    },
+    {
+      "name": "helpdesk (archive/helpdesk) [no .git]",
+      "path": "plugins-dev/archive/helpdesk"
+    },
+    {
+      "name": "lf-stock-report (archive/lf-stock-report)",
+      "path": "plugins-dev/archive/lf-stock-report"
+    },
+    {
+      "name": "Portal-Lightfoot (lightfoot-portal/Portal-Lightfoot)",
+      "path": "plugins-dev/archive/lightfoot-portal/Portal-Lightfoot"
+    },
+    {
+      "name": "woo_mailerlite-product_cust-upoad (archive/woo_mailerlite-product_cust-upoad)",
+      "path": "plugins-dev/archive/woo_mailerlite-product_cust-upoad"
+    },
+    {
+      "name": "erp-job-search-plugin (chameleon/erp-job-search-plugin)",
+      "path": "plugins-dev/chameleon/erp-job-search-plugin"
+    },
+    {
+      "name": "cc_complete_address (other/cc_complete_address)",
+      "path": "plugins-dev/chameleon/other/cc_complete_address"
+    },
+    {
+      "name": "cc_email_alert_plugin (other/cc_email_alert_plugin)",
+      "path": "plugins-dev/chameleon/other/cc_email_alert_plugin"
+    },
+    {
+      "name": "cc_media_cleanup (other/cc_media_cleanup) [no .git]",
+      "path": "plugins-dev/chameleon/other/cc_media_cleanup"
+    },
+    {
+      "name": "cc-custom-online-diary-plugin (other/cc-custom-online-diary-plugin)",
+      "path": "plugins-dev/chameleon/other/cc-custom-online-diary-plugin"
+    },
+    {
+      "name": "cc-url-redirects (other/cc-url-redirects)",
+      "path": "plugins-dev/chameleon/other/cc-url-redirects"
+    },
+    {
+      "name": "chameleon-admin (other/chameleon-admin) [no .git]",
+      "path": "plugins-dev/chameleon/other/chameleon-admin"
+    },
+    {
+      "name": "chameleon-cron-monitor → github.com/Nightsun1973/chameleon-cron-monitor",
+      "path": "plugins-dev/chameleon/other/chameleon-cron-monitor"
+    },
+    {
+      "name": "email-send-and-log (other/email-send-and-log)",
+      "path": "plugins-dev/chameleon/other/email-send-and-log"
+    },
+    {
+      "name": "erp-connector (other/erp-connector)",
+      "path": "plugins-dev/chameleon/other/erp-connector"
+    },
+    {
+      "name": "erp-job-search (other/erp-job-search)",
+      "path": "plugins-dev/chameleon/other/erp-job-search"
+    },
+    {
+      "name": "hello-update-test (other/hello-update-test) [no .git]",
+      "path": "plugins-dev/chameleon/other/hello-update-test"
+    },
+    {
+      "name": "kore-sim-manager (other/kore-sim-manager)",
+      "path": "plugins-dev/chameleon/other/kore-sim-manager"
+    },
+    {
+      "name": "engineer-move -serials (tools/engineer-move -serials)",
+      "path": "plugins-dev/chameleon/tools/engineer-move -serials"
+    },
+    {
+      "name": "mask-login (tools/mask-login)",
+      "path": "plugins-dev/chameleon/tools/mask-login"
+    },
+    {
+      "name": "php-reports (tools/php-reports) [no .git]",
+      "path": "plugins-dev/chameleon/tools/php-reports"
+    },
+    {
+      "name": "chameleon-mailer (woocommerce/chameleon-mailer)",
+      "path": "plugins-dev/chameleon/woocommerce/chameleon-mailer"
+    },
+    {
+      "name": "export-import-customer-order-details (woocommerce/export-import-customer-order-details)",
+      "path": "plugins-dev/chameleon/woocommerce/export-import-customer-order-details"
+    },
+    {
+      "name": "product_search (woocommerce/product_search)",
+      "path": "plugins-dev/chameleon/woocommerce/product_search"
+    },
+    {
+      "name": "woo_product_tags (woocommerce/woo_product_tags)",
+      "path": "plugins-dev/chameleon/woocommerce/woo_product_tags"
+    },
+    {
+      "name": "woo-central-hub (woocommerce/woo-central-hub)",
+      "path": "plugins-dev/chameleon/woocommerce/woo-central-hub"
+    },
+    {
+      "name": "woo-complete-and-dispatch (woocommerce/woo-complete-and-dispatch) [no .git]",
+      "path": "plugins-dev/chameleon/woocommerce/woo-complete-and-dispatch"
+    },
+    {
+      "name": "woo-erp-stock-sync (woocommerce/woo-erp-stock-sync)",
+      "path": "plugins-dev/chameleon/woocommerce/woo-erp-stock-sync"
+    },
+    {
+      "name": "woo-product-gallery-images (woocommerce/woo-product-gallery-images)",
+      "path": "plugins-dev/chameleon/woocommerce/woo-product-gallery-images"
+    },
+    {
+      "name": "woo-region-stock-levels (woocommerce/woo-region-stock-levels)",
+      "path": "plugins-dev/chameleon/woocommerce/woo-region-stock-levels"
+    },
+    {
+      "name": "woo-variation-manager (woocommerce/woo-variation-manager)",
+      "path": "plugins-dev/chameleon/woocommerce/woo-variation-manager"
+    },
+    {
+      "name": "anonymous (client/anonymous)",
+      "path": "plugins-dev/client/anonymous"
+    },
+    {
+      "name": "fleet-trak (client/fleet-trak)",
+      "path": "plugins-dev/client/fleet-trak"
+    },
+    {
+      "name": "knowles (client/knowles)",
+      "path": "plugins-dev/client/knowles"
+    },
+    {
+      "name": "lightfoot (client/lightfoot)",
+      "path": "plugins-dev/client/lightfoot"
+    },
+    {
+      "name": "lkq (client/lkq)",
+      "path": "plugins-dev/client/lkq"
+    }
+  ],
+  "settings": {
+    "git.autoRepositoryDetection": "subFolders",
+    "git.repositoryScanMaxDepth": 10,
+    "git.detectSubmodules": true,
+    "git.openRepositoryInParentFolders": false,
+    "git.showProgress": true,
+    "scm.repositories.visible": 10,
+    "intelephense.stubs": [
+      "wordpress"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "bmewburn.vscode-intelephense-client",
+      "mhutchie.vscode-git-graph",
+      "eamodio.gitlens"
+    ]
+  }
+}

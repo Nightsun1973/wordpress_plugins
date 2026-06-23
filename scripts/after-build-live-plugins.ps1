@@ -12,6 +12,10 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+if ($env:CHAMELEON_SKIP_LIVE_PUBLISH -eq '1') {
+  Write-Host 'Skipped plugins-live publish (CHAMELEON_SKIP_LIVE_PUBLISH=1).'
+  exit 0
+}
 $wpRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $publish = Join-Path $wpRoot '.tools\scripts\publish-live-plugins.ps1'
 if (-not (Test-Path -LiteralPath $publish)) {

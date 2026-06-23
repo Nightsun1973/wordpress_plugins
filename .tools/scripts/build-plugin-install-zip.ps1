@@ -21,6 +21,29 @@
 #                          -Version   '1.2.3' `
 #                          -OutZip    "$ProjectRoot\dist\my-plugin\my-plugin-1.2.3.zip"
 
+function Strip-PluginPhpUtf8Bom {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)] [string] $SourceDir
+    )
+
+    if (-not (Test-Path -LiteralPath $SourceDir)) {
+        throw "Strip-PluginPhpUtf8Bom: SourceDir not found: $SourceDir"
+    }
+
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    Get-ChildItem -LiteralPath $SourceDir -Recurse -Filter '*.php' -File | ForEach-Object {
+        $path = $_.FullName
+        $bytes = [System.IO.File]::ReadAllBytes($path)
+        if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
+            $trimmed = New-Object byte[] ($bytes.Length - 3)
+            [Array]::Copy($bytes, 3, $trimmed, 0, $trimmed.Length)
+            [System.IO.File]::WriteAllBytes($path, $trimmed)
+            Write-Warning "Stripped UTF-8 BOM before zip: $path"
+        }
+    }
+}
+
 function Build-PluginInstallZip {
     [CmdletBinding()]
     param(
@@ -33,6 +56,8 @@ function Build-PluginInstallZip {
     if (-not (Test-Path -LiteralPath $SourceDir)) {
         throw "Build-PluginInstallZip: SourceDir not found: $SourceDir"
     }
+
+    Strip-PluginPhpUtf8Bom -SourceDir $SourceDir
 
     Add-Type -AssemblyName System.IO.Compression       | Out-Null
     Add-Type -AssemblyName System.IO.Compression.FileSystem | Out-Null

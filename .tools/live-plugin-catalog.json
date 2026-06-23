@@ -7,30 +7,17 @@
         "monthly_stock_report": "Renders a monthly stock report view."
       }
     },
-    "chameleon-booking": {
+    "simple-booking": {
       "description": "Booking plugin used in Chameleon client work. Provides a booking form/flow.",
       "shortcodes": {
         "Chameleon_Booking": "Renders the booking UI (form/flow)."
       }
     },
-    "chameleon-customer-location": {
-      "description": "Adds customer location features used by other Chameleon plugins."
-    },
-    "chameleon-demo-gate": {
+    "demo-gate": {
       "description": "Simple demo/gating plugin used in sample environments."
     },
-    "chameleon-regional-stock-control": {
+    "woo-region-stock-levels": {
       "description": "WooCommerce regional stock control / enforcement plugin."
-    },
-    "chameleon-reports": {
-      "description": "Chameleon reports plugin: daily jobs and stock report outputs.",
-      "shortcodes": {
-        "chameleon_daily_jobs": "Renders a daily jobs report/list.",
-        "chameleon_stock_report": "Renders a stock report view."
-      }
-    },
-    "chameleon-site-scan": {
-      "description": "Scans a WordPress site for common checks and outputs findings."
     },
     "customer-reports": {
       "description": "Customer report pack: various stock/job reports for clients.",
@@ -77,6 +64,16 @@
         "knowles_dashboard": "Renders the Knowles dashboard UI."
       }
     },
+    "lkq-reports": {
+      "description": "LKQ customer portal reports (Chameleon): stock, daily jobs, 2-year detail. Default ERP client ID 328.",
+      "shortcodes": {
+        "lkq_stock_report": "Renders the LKQ stock report.",
+        "lkq_daily_jobs": "Renders the LKQ daily jobs report.",
+        "customer_stock_report": "Customer-agnostic stock report alias.",
+        "customer_daily_jobs": "Customer-agnostic daily jobs alias.",
+        "2_year_detail": "Two-year detail report."
+      }
+    },
     "lightfoot-job-search": {
       "description": "Lightfoot job search plugin (Chameleon)."
     },
@@ -98,13 +95,13 @@
     "woo-product-badges": {
       "description": "WooCommerce product badges / tag-based labels plugin."
     },
-    "woocommerce-central-manager-hub": {
+    "woo-central-manager-hub": {
       "description": "WooCommerce Central Manager (hub) plugin."
     },
-    "woocommerce-central-manager-satellite": {
+    "woo-central-manager-satellite": {
       "description": "WooCommerce Central Manager (satellite) plugin."
     },
-    "woocommerce-export-import-customer-order-details": {
+    "woo-export-import-customer-order-details": {
       "description": "Export/import WooCommerce customer + order details plugin."
     }
   }

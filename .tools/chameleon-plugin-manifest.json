@@ -1,0 +1,143 @@
+{
+  "chameleon-admin": {
+    "displayName": "Chameleon Admin",
+    "description": "Central hub for Chameleon plugin updates and shared wp-admin tools for this site."
+  },
+  "cron-monitor": {
+    "displayName": "WP Cron Monitor",
+    "description": "Monitor cron health: scheduled events, wake log, disable visit cron, and run overdue jobs."
+  },
+  "cc-url-redirects": {
+    "displayName": "URL Redirection",
+    "description": "Manage 301/302 redirects, regex rules, and import/export for WordPress URLs.",
+    "mainFile": "redirects.php",
+    "installSlug": "redirects"
+  },
+  "email-send-and-log": {
+    "displayName": "Email Send and Log",
+    "description": "Send WordPress mail via Mandrill and log every send attempt with admin review tools."
+  },
+  "erp-connector": {
+    "displayName": "ERP Connector",
+    "description": "Shared PostgreSQL ERP connector; other Chameleon plugins use this instead of their own DB layer."
+  },
+  "erp-job-search": {
+    "displayName": "ERP Job Search",
+    "description": "Search ERP jobs by NC, PO, registration, or VIN with attachments via ERP Connector."
+  },
+  "hello-update-test": {
+    "displayName": "Hello Update Test",
+    "description": "Minimal plugin to verify Chameleon Admin auto-updates from the central plugin repo."
+  },
+  "kore-sim-manager": {
+    "displayName": "SIM Manager",
+    "description": "Manage SIM data for Woo subscriptions via Kore Wireless (extensible to other providers)."
+  },
+  "engineer-move-serials": {
+    "displayName": "Engineer Move Serials",
+    "description": "Move engineer serial numbers to a target ERP location with preview, progress, and logging."
+  },
+  "mask-login": {
+    "displayName": "Mask Login",
+    "description": "Masked front-end login URL while keeping wp-admin available for administrators."
+  },
+  "php-reports": {
+    "displayName": "PHP Reports",
+    "description": "Run scheduled SQL reports against ERP PostgreSQL and email Excel-openable results."
+  },
+  "woo-mailer": {
+    "displayName": "Woo Mailer",
+    "description": "Schedule Woo review-request and abandoned-basket emails from Chameleon admin."
+  },
+  "woo-export-import-customer-order-details": {
+    "displayName": "Woo Export Import Customer Order Details",
+    "description": "Export and import Woo customers, orders, and subscription data between sites."
+  },
+  "woo-central-manager-hub": {
+    "displayName": "Woo Central Manager Hub",
+    "description": "Hub site controller for multi-store Woo central management."
+  },
+  "woo-central-manager-satellite": {
+    "displayName": "Woo Central Manager Satellite",
+    "description": "Satellite store connector for Woo Central Manager Hub."
+  },
+  "woo-complete-and-dispatch": {
+    "displayName": "Woo Complete and Dispatch",
+    "description": "Attach ERP dispatch details to Woo orders and complete orders when fully shipped."
+  },
+  "woo-erp-stock-sync": {
+    "displayName": "Woo ERP Stock Sync",
+    "description": "Sync ERP stock levels to Woo products by SKU on a schedule or on demand."
+  },
+  "woo-product-gallery-images": {
+    "displayName": "Woo Product Gallery",
+    "description": "Elementor product gallery with thumbnails, lightbox, zoom, and video support."
+  },
+  "woo-region-stock-levels": {
+    "displayName": "Regional Stock Control",
+    "description": "Region-based Woo stock visibility and quantity limits per customer area."
+  },
+  "woo-variation-manager": {
+    "displayName": "Woo Variation Manager",
+    "description": "Variation swatches and per-variation gallery images with gallery sync on selection."
+  },
+  "woo-product-badges": {
+    "displayName": "Woo Product Badges",
+    "description": "Rules-based product badge overlays on Woo catalog and product images."
+  },
+  "knowles-booking": {
+    "displayName": "Knowles Booking",
+    "description": "Online job booking for Knowles customers with ERP-aware scheduling and confirmations."
+  },
+  "knowles-data-dashboard": {
+    "displayName": "Knowles Dashboard",
+    "description": "Knowles customer data dashboard for visualization and operational management."
+  },
+  "fleet-trak-dashboard": {
+    "displayName": "Fleet Trak Dashboard",
+    "description": "Fleet Trak customer data dashboard and reporting in wp-admin."
+  },
+  "lightfoot-job-search": {
+    "displayName": "Lightfoot Job Search",
+    "description": "Lightfoot-branded ERP job search by NC, PO, registration, or VIN."
+  },
+  "customer-reports": {
+    "displayName": "Customer Reports",
+    "description": "Scheduled customer report emails with ERP-backed data for Lightfoot sites."
+  },
+  "lkq-reports": {
+    "displayName": "LKQ Reports",
+    "description": "LKQ customer report emails and admin tools backed by ERP data."
+  },
+  "simple-booking": {
+    "displayName": "Simple Booking",
+    "description": "Lightweight Chameleon booking shortcode for demo and simple appointment flows."
+  },
+  "demo-gate": {
+    "displayName": "Demo Gate",
+    "description": "Password gate for Chameleon demo sites without affecting wp-admin access."
+  },
+  "responsive-viewer": {
+    "displayName": "Responsive Viewer",
+    "description": "Preview pages at common breakpoints from a toolbar in the WordPress admin bar."
+  },
+  "media-cleanup": {
+    "displayName": "Media Cleanup",
+    "description": "Find media library entries with missing files; backup and clean up safely.",
+    "mainFile": "media-cleanup.php"
+  },
+  "complete-address": {
+    "displayName": "Complete Address",
+    "description": "UK address lookup and completion for Woo checkout and forms.",
+    "mainFile": "complete-address.php"
+  },
+  "custom-online-diary": {
+    "displayName": "Custom Online Diary",
+    "description": "Online diary booking interface integrated with Chameleon scheduling workflows.",
+    "mainFile": "custom-online-diary.php"
+  },
+  "woo-product-search": {
+    "displayName": "Woo Product Search",
+    "description": "Enhanced AJAX product search for Woo storefronts."
+  }
+}

@@ -162,10 +162,17 @@ Use semantic-style versioning in the format **MAJOR.MINOR.PATCH** (e.g. 1.2.3).
 
 ## 4. Architecture & Code Standards
 
-### Plugin header (main plugin file)
-- **Author:** Lee Carter  
+- **Plugin header (main plugin file)**
+- **Author:** **Lee Carter** (every Chameleon plugin).
 - **Author URI:** https://chameleoncodewing.co.uk  
-- **Plugin URI:** The “visit plugin site” link (shown in the Plugins list and on the plugin’s detail screen) **must** direct to **https://chameleoncodewing.co.uk**. Set the `Plugin URI` header in the main plugin file to this URL.
+- **Plugin URI:** The “visit plugin site” link **must** direct to **https://chameleoncodewing.co.uk**.
+- **Plugin Name (Plugins list only):** `(Chameleon) Display Name` — prefix groups Chameleon products on **Plugins → Installed Plugins**. Display names: `.tools/chameleon-plugin-manifest.json`. Do **not** put version in `Plugin Name`.
+- **Description:** One short, informative line (what it does; note Woo/ERP dependency if required — prefer **Woo** over **WooCommerce** in user-facing copy).
+- **Admin menus / screens:** Use **display name only** (no `(Chameleon)`), optionally with **v{version}**. Normalize headers: `.\scripts\normalize-chameleon-plugin-headers.ps1`; strip `(Chameleon)` from UI strings: `.\scripts\strip-chameleon-admin-display-labels.ps1`.
+- **Slug / zip:** Functional kebab-case slug only — no extra `chameleon-` prefix on zip or install folder (e.g. `dist/email-send-and-log/email-send-and-log-1.0.0.zip` → `wp-content/plugins/email-send-and-log/`). Woo-related plugins: slug prefix **`woo-`** (e.g. `woo-product-search`), not `woocommerce-`; display name uses **Woo** not **WooCommerce** (see **plugin-naming.mdc**).
+- **Update URI (Chameleon products):** `Update URI: https://admin.chameleoncodewing.co.uk/wp-content/uploads/plugin-repo` — enables updates via Chameleon Admin and `plugins-live` / `index.json`.
+- **Requires Plugins (Chameleon products, WP 6.5+):** `Requires Plugins: chameleon-admin` — WordPress blocks install/activate when Admin is missing.
+- **Chameleon Admin bootstrap (Chameleon products):** Copy `.tools/templates/chameleon-require-admin.php` to `includes/`, then call `chameleon_plugin_require_admin_bootstrap( __FILE__, '<text-domain>' )` after the `ABSPATH` guard. See `.cursor/rules/chameleon-admin-required.mdc`. Exception: **`chameleon-admin`** does not require itself.
 
 - Follow WordPress and WooCommerce best practices at all times.
 - Prefer:
@@ -193,6 +200,7 @@ Use semantic-style versioning in the format **MAJOR.MINOR.PATCH** (e.g. 1.2.3).
 - Code must be **HPOS-compatible**
 - No legacy order APIs
 - No direct database access to WooCommerce tables unless explicitly required and documented
+- **Naming:** Slug and folder use **`woo-`**; display names use **Woo** (e.g. `Woo Product Search`). Keep `WooCommerce` only in code/API references (`class_exists( 'WooCommerce' )`, etc.).
 
 ---
 

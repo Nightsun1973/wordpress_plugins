@@ -33,8 +33,20 @@ When creating or deploying WordPress plugins in this repo, follow these rules so
 - **Options / transients:** Prefix with slug using underscores (e.g. `knowles_booking_*`).
 - **Constants:** UPPER_SNAKE from slug (e.g. `KNOWLES_BOOKING_VERSION`, `KNOWLES_BOOKING_PATH`).
 - **Class prefix:** PascalCase from slug (e.g. `Knowles_Booking_Admin`, `Knowles_Booking_Public`).
-- **Plugin header:** `Plugin Name` must use the convention **`(Chameleon) Plugin Name`** (Chameleon prefix in parentheses first) so Chameleon plugins are identifiable (e.g. `(Chameleon) Knowles Booking`, `(Chameleon) WooCommerce Export Import Customer Order Details`). Put the release number only in the **`Version:`** header (and `VERSION` file / main plugin constant), **not** inside `Plugin Name`. Also set `Author`, `Author URI`, `Plugin URI` (https://chameleoncodewing.co.uk) as per project standards.
-- **Admin menus / settings screens:** Use **`(Chameleon) Plugin Name`** plus **v{version}** (from the plugin version constant) for the **submenu label and admin screen title** / `$title`, so editors see the running release in wp-admin. Do **not** put the version string inside the `Plugin Name` header.
+- **Plugin header — Plugins list only:** `Plugin Name` must be **`(Chameleon) Display Name`** (prefix first) so all Chameleon products group together on **Plugins → Installed Plugins**. Example: `(Chameleon) Email Send and Log`, `(Chameleon) Knowles Booking`. Put the release number only in **`Version:`** (and `VERSION` file / constants), **not** in `Plugin Name`.
+- **Display name everywhere else:** Admin submenu labels, screen titles, notices, and user-facing copy use **Display Name only** (no `(Chameleon)` prefix or suffix). Append **v{version}** on admin screen titles when helpful. Canonical display names: **`.tools/chameleon-plugin-manifest.json`**.
+- **Author:** **`Lee Carter`** on every Chameleon plugin header (`Author:` line). `Author URI:` remains https://chameleoncodewing.co.uk.
+- **Description:** Short, informative one-line (or two short lines) in the plugin header — what the plugin does and key dependency if non-obvious. Keep in sync with manifest when listed there.
+- **Slug / zip / install folder:** Lowercase kebab-case **functional slug** (e.g. `email-send-and-log`, `woo-mailer`, `knowles-booking`). Do **not** add a `chameleon-` prefix to the slug, zip filename, or `wp-content/plugins/<slug>/` folder unless the product slug itself is `chameleon-admin`. WooCommerce plugins use the `woo-` prefix where applicable. Zip: `<slug>-<semver>.zip` inside `dist/<slug>/`.
+
+## WooCommerce-related plugins: use **Woo**, not **WooCommerce**
+
+For Chameleon plugins that integrate with the WooCommerce plugin:
+
+- **Display name:** Use **Woo** (e.g. `Woo Product Search`, `Woo Central Manager Hub`, `Woo Export Import Customer Order Details`). Do **not** spell out **WooCommerce** in display names, admin menu labels, or the Plugins list name (after the `(Chameleon)` prefix).
+- **Slug / folder / main file:** Prefer **`woo-`** prefix (e.g. `woo-product-search`, `woo-central-manager-hub`). Do **not** use `woocommerce-` in new slugs or repo install folders.
+- **Descriptions:** May say “Woo store”, “Woo products”, or “requires WooCommerce” when the dependency must be explicit; otherwise prefer **Woo**.
+- **Code:** Keep `class_exists( 'WooCommerce' )`, `Automattic\WooCommerce\…`, and other **WooCommerce API** identifiers unchanged — only **naming** (slug, folder, display strings) uses **Woo**.
 
 ## Multi-plugin layout (this repo)
 
@@ -51,4 +63,5 @@ When creating or deploying WordPress plugins in this repo, follow these rules so
 - [ ] Options/transients use slug with underscores as prefix.
 - [ ] Constants and class names use the same slug-derived naming.
 - [ ] After plugin changes, rebuild both zips (`build-booking-zip.ps1`, `build-dashboard-zip.ps1`).
-- [ ] `Plugin Name` is **`(Chameleon) …`** (prefix first; no `v` in the header); admin menu/screen title may append **v{version}**; **`Version:`** (and `VERSION` / constant) holds **MAJOR.MINOR.PATCH**.
+- [ ] `Plugin Name` is **`(Chameleon) Display Name`** (list only); admin/UI uses display name without `(Chameleon)`; **`Version:`** holds semver.
+- [ ] `Author:` is **Lee Carter**; description is short and informative.
