@@ -1,0 +1,47 @@
+---
+description: WordPress plugin PHP must never ship UTF-8 BOM — breaks AJAX, REST, and media library JSON
+alwaysApply: true
+---
+
+# Plugin PHP — no UTF-8 BOM
+
+All deployable plugin PHP (main file, `includes/`, templates loaded by WordPress) **must start with `<?php`**, not a UTF-8 BOM (`EF BB BF`).
+
+## Why
+
+Invisible BOM bytes are sent as HTTP output before JSON. That breaks:
+
+- `admin-ajax.php` (`query-attachments`, MainWP DataTables, plugin updates)
+- REST API (`wp-json/…`)
+- WooCommerce `wc-ajax` (variation data)
+- Media library grid (infinite spinner)
+
+Console symptom: `SyntaxError: Unexpected token '﻿'` or `parsererror`.
+
+## Rules
+
+1. **Source:** Save PHP as **UTF-8 without BOM**. First bytes must be `3C 3F 70 68 70` (`<?php`), never `EF BB BF`.
+2. **Before commit:** After editing plugin PHP, ensure no BOM in changed files (editor: “UTF-8” not “UTF-8 with BOM”).
+3. **Build:** Use `Build-PluginInstallZip` (`.tools/scripts/build-plugin-install-zip.ps1`). It strips accidental BOM from `*.php` under the source folder, then **fails the build** if any BOM remains in source or in the zip.
+4. **Do not rely on strip alone:** Fix source in the repo; stripping at build time is a safety net, not a substitute for clean files.
+5. **Changelog:** When removing BOM from a shipped plugin, bump **PATCH** and note “Remove UTF-8 BOM …” in `CHANGELOG.md`.
+
+## Verify
+
+From `wordpress_plugins` root:
+
+```powershell
+.\.tools\scripts\assert-plugin-php-no-bom.ps1 -SourceDir <path-to-plugin-folder>
+```
+
+Scan a built zip:
+
+```powershell
+.\.tools\scripts\assert-plugin-php-no-bom.ps1 -ZipPath dist\<slug>\<slug>-<version>.zip
+```
+
+Build scripts that use the shared helper already assert BOM-free output via `Build-PluginInstallZip`.
+
+## Reference
+
+Same class of bug as **URL Redirection** (Thinkware variations) and **Woo Complete and Dispatch** 1.0.4 (icoverall media library). See **plugin-install-zip-format.mdc**.

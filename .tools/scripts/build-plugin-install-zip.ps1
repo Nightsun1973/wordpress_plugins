@@ -21,6 +21,51 @@
 #                          -Version   '1.2.3' `
 #                          -OutZip    "$ProjectRoot\dist\my-plugin\my-plugin-1.2.3.zip"
 
+function Test-PhpFileHasUtf8Bom {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)] [string] $Path
+    )
+
+    if (-not (Test-Path -LiteralPath $Path)) {
+        return $false
+    }
+
+    $bytes = [System.IO.File]::ReadAllBytes($Path)
+    return ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF)
+}
+
+function Get-PluginPhpUtf8BomPaths {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)] [string] $SourceDir
+    )
+
+    if (-not (Test-Path -LiteralPath $SourceDir)) {
+        throw "Get-PluginPhpUtf8BomPaths: SourceDir not found: $SourceDir"
+    }
+
+    $hits = [System.Collections.Generic.List[string]]::new()
+    Get-ChildItem -LiteralPath $SourceDir -Recurse -Filter '*.php' -File | ForEach-Object {
+        if (Test-PhpFileHasUtf8Bom -Path $_.FullName) {
+            $hits.Add($_.FullName) | Out-Null
+        }
+    }
+    return $hits
+}
+
+function Assert-PluginPhpNoUtf8Bom {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)] [string] $SourceDir
+    )
+
+    $hits = @(Get-PluginPhpUtf8BomPaths -SourceDir $SourceDir)
+    if ($hits.Count -gt 0) {
+        throw ("Plugin PHP must not contain UTF-8 BOM. Found in: " + ($hits -join '; '))
+    }
+}
+
 function Strip-PluginPhpUtf8Bom {
     [CmdletBinding()]
     param(
@@ -31,7 +76,6 @@ function Strip-PluginPhpUtf8Bom {
         throw "Strip-PluginPhpUtf8Bom: SourceDir not found: $SourceDir"
     }
 
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     Get-ChildItem -LiteralPath $SourceDir -Recurse -Filter '*.php' -File | ForEach-Object {
         $path = $_.FullName
         $bytes = [System.IO.File]::ReadAllBytes($path)
@@ -101,7 +145,48 @@ function Build-PluginInstallZip {
         $zipStream.Dispose()
     }
 
+    Assert-PluginPhpNoUtf8Bom -SourceDir $SourceDir
+    Assert-PluginInstallZipNoUtf8Bom -ZipPath $OutZip
+
     Write-Host "Built: $OutZip (slug=$Slug version=$Version)"
+}
+
+function Assert-PluginInstallZipNoUtf8Bom {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)] [string] $ZipPath
+    )
+
+    if (-not (Test-Path -LiteralPath $ZipPath)) {
+        throw "Assert-PluginInstallZipNoUtf8Bom: ZipPath not found: $ZipPath"
+    }
+
+    Add-Type -AssemblyName System.IO.Compression.FileSystem | Out-Null
+    $zip = [System.IO.Compression.ZipFile]::OpenRead($ZipPath)
+    try {
+        $bad = @()
+        foreach ($entry in $zip.Entries) {
+            if ($entry.FullName -notmatch '\.php$') { continue }
+            $reader = New-Object System.IO.BinaryReader($entry.Open())
+            try {
+                if ($reader.BaseStream.Length -ge 3) {
+                    $b0 = $reader.ReadByte()
+                    $b1 = $reader.ReadByte()
+                    $b2 = $reader.ReadByte()
+                    if ($b0 -eq 0xEF -and $b1 -eq 0xBB -and $b2 -eq 0xBF) {
+                        $bad += $entry.FullName
+                    }
+                }
+            } finally {
+                $reader.Dispose()
+            }
+        }
+        if ($bad.Count -gt 0) {
+            throw ("Install zip must not contain UTF-8 BOM in PHP files. Found in: " + ($bad -join ', '))
+        }
+    } finally {
+        $zip.Dispose()
+    }
 }
 
 function Assert-PluginInstallZipPosixPaths {

@@ -29,8 +29,10 @@ Each plugin's `scripts/build-*-zip.ps1` should:
 
 1. Find the `wordpress_plugins` root.
 2. Dot-source the shared helper.
-3. Call `Build-PluginInstallZip -SourceDir <plugin-folder> -Slug <slug> -Version <ver> -OutZip <dist/slug/slug-ver.zip>`.
+3. Call `Build-PluginInstallZip -SourceDir <plugin-folder> -Slug <slug> -Version <ver> -OutZip <dist/slug/slug-ver.zip>` (strips accidental BOM, then asserts source + zip are BOM-free).
 4. Call `Assert-PluginInstallZipPosixPaths -ZipPath <zip> -ExpectedSlug <slug>` to fail the build if the zip is not POSIX-safe.
+
+See **plugin-no-utf8-bom.mdc**. Audit sources or zips: `.\.tools\scripts\assert-plugin-php-no-bom.ps1`.
 
 ## What NOT to do
 

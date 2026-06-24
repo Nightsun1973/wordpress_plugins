@@ -7,7 +7,7 @@ alwaysApply: true
 
 **Naming:** Slug = lowercase hyphenated functional name (e.g. `engineer-move-serials`, `woo-product-search` — not `woocommerce-product-search`). Woo-related plugins: display **Woo** not **WooCommerce** in names; slug prefix **`woo-`**. See **plugin-naming.mdc** and `.tools/chameleon-plugin-manifest.json`.
 
-**Deploy:** Installed path `wp-content/plugins/<slug>/`; main file `<slug>.php` in that folder. Zip: one top-level folder = slug; contents = plugin files. Store zips in **`dist/<slug>/`** (or `plugins/dist/<slug>/` in multi-plugin repos). Build script in `scripts/` (e.g. `build-zip.ps1`); run after any plugin change.
+**Deploy:** Installed path `wp-content/plugins/<slug>/`; main file `<slug>.php` in that folder. Zip: one top-level folder = slug; contents = plugin files. Store zips in **`dist/<slug>/`** (or `plugins/dist/<slug>/` in multi-plugin repos). Build script in `scripts/` (e.g. `build-zip.ps1`); run after any plugin change. **PHP must be UTF-8 without BOM** — see **plugin-no-utf8-bom.mdc**; `Build-PluginInstallZip` fails if BOM is present.
 
 **Version:** MAJOR.MINOR.PATCH. **PATCH** on every change: update `VERSION` file, CHANGELOG entry, main file Version header in same commit. **MINOR** for new features; **MAJOR** for explicit new release. Never commit a version bump without a changelog entry.
 

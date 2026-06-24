@@ -9,8 +9,8 @@ This project requires a **complete rollback path**. Every code or doc change mus
 
 ## Rules
 
-1. **Commit after every logical change** – Do not leave uncommitted work. After implementing a feature, fix, or doc update, run `git add` and `git commit` with a clear message.
-2. **One logical change per commit** – Prefer separate commits for separate features/fixes (e.g. "Fix pagination dots" then "Add focus image size option") so rollback is granular.
+1. **Commit after every logical change** – Do not leave uncommitted work. After implementing a feature, fix, or doc update in a **plugin repo**, run `git add` and `git commit` in **that plugin’s git root** (not only the monorepo). Push to the plugin’s remote when the session’s plugin work is complete.
+2. **One logical change per commit** – Prefer separate commits per plugin (or per distinct fix) so rollback is granular.
 3. **Version and changelog** – On every change to a plugin, bump the **patch** version (x.y.Z → x.y.Z+1) in that plugin’s `VERSION` file and add a brief entry to its `CHANGELOG.md` in the same commit. Do not commit a version bump without changelog. Minor (x.Y.0) only when adding functionality; major (X.0.0) only when explicitly stated as a new release. See [.cursor/rules/plugin-version-bump.mdc](.cursor/rules/plugin-version-bump.mdc).
 4. **Before finishing** – If there are uncommitted changes, commit them. Run `git status` and commit any modified/untracked project files (excluding local-only or generated files per `.gitignore`).
 
